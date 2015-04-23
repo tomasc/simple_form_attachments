@@ -1,5 +1,7 @@
 # SimpleFormAttachments
 
+[![Build Status](https://travis-ci.org/tomasc/simple_form_attachments.svg)](https://travis-ci.org/tomasc/simple_form_attachments) [![Gem Version](https://badge.fury.io/rb/simple_form_attachments.svg)](http://badge.fury.io/rb/simple_form_attachments) [![Coverage Status](https://img.shields.io/coveralls/tomasc/simple_form_attachments.svg)](https://coveralls.io/r/tomasc/simple_form_attachments)
+
 A Rails engine for creating Attachments using the [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) plugin.
 
 Dependencies:
@@ -19,6 +21,10 @@ And then execute:
 Or install it yourself as:
 
     $ gem install simple_form_attachments
+
+Add `simple_form_attachments` following to `application.js`:
+
+    //= require simple_form_attachments
 
 ## Usage
 
@@ -69,7 +75,7 @@ after_save :mark_attachment_pdf_permanent
 after_save :mark_attachment_images_permanent
 ```
 
-These methods set (atomically) the attachment's `:temporary` attribute to false.
+These methods set (atomically) the attachment's `:temporary` attribute to `false`.
 
 The `mark_all_attachments_permanent` method that loops through all attachment relations, triggering individual abovementioned methods, is also available. The two `after_save` callbacks above can be replaced with:
 
