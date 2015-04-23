@@ -41,7 +41,7 @@ describe Attachment do
   end
 
   describe '#temporary' do
-    it 'should work' do
+    it 'it should have field :temporary' do
       temporary_attachment.must_respond_to :temporary
     end
 
