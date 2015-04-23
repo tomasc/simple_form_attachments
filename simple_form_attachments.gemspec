@@ -6,10 +6,10 @@ require 'simple_form_attachments/version'
 Gem::Specification.new do |spec|
   spec.name          = "simple_form_attachments"
   spec.version       = SimpleFormAttachments::VERSION
-  spec.authors       = ["Tomas Celizna"]
-  spec.email         = ["tomas.celizna@gmail.com"]
-  spec.summary       = %q{Makes attachments neat and stuff}
-  spec.description   = %q{Makes attachments neat and stuff}
+  spec.authors       = ["Tomas Celizna", "Asger Behncke Jacobsen"]
+  spec.email         = ["tomas.celizna@gmail.com", "asger@8kilo.com"]
+  spec.summary       = %q{A Rails engine which takes care of creating Attachments using the jQuery File Upload plugin.}
+  spec.description   = %q{A Rails engine which takes care of creating Attachments using the jQuery File Upload plugin.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
