@@ -22,7 +22,7 @@ Or install it yourself as:
 
     $ gem install simple_form_attachments
 
-Add `simple_form_attachments` following to `application.js`:
+Add `simple_form_attachments following to `application.js`:
 
     //= require simple_form_attachments
 
@@ -33,22 +33,22 @@ Add `simple_form_attachments` following to `application.js`:
 Create a model for your attachments that includes the `SimpleFormAttachments::Attachment` concern:
 
 ```ruby
-class Attachment
+class AttachmentImage
   include SimpleFormAttachments::Attachment
 end
 ```
 
-Note that the model does not include specific accessors (ie Dragonfly). You need to define those yourself in your model.
+This adds a `:temporary` Boolean field and two scopes: `temporary` and `permanent` to the model.
+
+Note that the concern does not include any specific accessors (ie Dragonfly). You need to define those yourself in your model.
 
 #### Validations
 
 Standard Rails validation errors are displayed in the uploader, should the uploaded file not pass the validations defined on the attachment model.
 
-### Parent model
+### Owner model
 
-#### Relations
-
-The attachment owner needs to include the `SimpleFormAttachments::HasAttachments` mixin, which includes the relation macros `has_one_attachment` and `has_many_attachments`:
+Add the `SimpleFormAttachments::HasAttachments` concern to the attachment owner. This includes the mongoid relation macros `has_one_attachment` and `has_many_attachments`:
 
 ```ruby
 class Parent
@@ -60,24 +60,24 @@ class Parent
 end
 ```
 
-Relations between the parent and Attachment are referenced, not embedded. The gem uses `belongs_to` for 1-1 relations and `has_and_belongs_to_many` for 1-n relations. This is to ensure that relations work with embedded parents, since the relations need to be stored on the owner's side.
+Relations between the parent and Attachment are referenced, not embedded. The gem uses `belongs_to` for 1–1 relations and `has_and_belongs_to_many` for 1–n relations. This is to ensure that relations work with embedded parents, since the relations need to be stored on the owner's side.
 
 You could use for example the `before_save` callback to embed the attachments yourself.
 
 #### Callbacks
 
-Since the attachments can be added/removed at will before the form of the owner is submitted, we need to indicate which ones have been in the end submitted with the form so that we can – immediately or later – delete the temporary ones.
+Since attachments can be added/removed dynamically in the form, we need to indicate which ones are actually submitted in the end, so that we can – immediately or later – delete the temporary ones.
 
-For that each relation defines a method named after the relation name, which can be called for example via callback:
+For that each relation defines a method named after the relation name, which can be called for example via a callback:
 
 ```ruby
 after_save :mark_attachment_pdf_permanent
 after_save :mark_attachment_images_permanent
 ```
 
-These methods set (atomically) the attachment's `:temporary` attribute to `false`.
+These methods (atomically) set the attachment's `:temporary` attribute to `false`.
 
-The `mark_all_attachments_permanent` method that loops through all attachment relations, triggering individual abovementioned methods, is also available. The two `after_save` callbacks above can be replaced with:
+Alternatively the `mark_all_attachments_permanent` method can be used to loop through all attachment relations, triggering individual abovementioned methods. This means the two `after_save` callbacks above can be replaced with:
 
 ```ruby
 after_save :mark_all_attachments_permanent
@@ -85,7 +85,7 @@ after_save :mark_all_attachments_permanent
 
 #### Validations
 
-If you want to validate the number of attachments you can use for example the following validation. Eventual validation errors will be displayed to the user when submitting the parent form.
+If you want to validate the number of attachments allowed on the owner, you can use for example the following validation. Eventual validation errors will be displayed to the user when submitting the parent form.
 
 ```ruby
 validates :attachment_pdfs, length: { maximum: 2 }
