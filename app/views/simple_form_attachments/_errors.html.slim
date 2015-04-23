@@ -1,0 +1,4 @@
+= I18n.t(:errors, scope: :simple_form_attachments, count: errors.to_a.length)
+ul.errors
+  - errors.map{ |k, v| "#{k} #{v}" }.each do |error|
+    li.error = error

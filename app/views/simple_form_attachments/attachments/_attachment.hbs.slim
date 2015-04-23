@@ -1,0 +1,17 @@
+tr.attachment
+  td.handle
+  td.thumb
+  td.file_info
+    span.name
+      | {{ name }}
+    span.mime_type
+      | {{ mime_type }}
+    span.size
+      | {{ size }}
+
+  td.progress
+    div.progress.container
+      div.progress.bar
+
+  td.cancel.delete.close
+    button.button.cancel = I18n.t(:cancel, scope: 'simple_form_attachments.buttons')

@@ -1,0 +1,220 @@
+$image-height: 60px;
+
+$font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$default-font-size: 14px;
+$default-line-height: 16px;
+$small-font-size: 12px;
+$small-line-height: 14px;
+$padding: 4px;
+$padding-large: 8px;
+
+@mixin font {
+  font-family: $font-family;
+  font-size: $default-font-size;
+  line-height: $default-line-height;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: 0;
+  color: black;
+}
+
+@mixin default-font-size {
+  font-size: $default-font-size;
+  line-height: $default-line-height;
+}
+
+@mixin small-font-size {
+  font-size: $small-font-size;
+  line-height: $small-line-height;
+}
+
+body {
+  @include font;
+  @include default-font-size;
+}
+
+// --------------------------------------------------------------------
+
+input[type="file"] {
+  margin: 0;
+  padding: 0;
+}
+
+div.input.attachment {
+  label[for="attachment_file"] {
+    margin-bottom: $default-line-height;
+
+    span.button {
+      display: none;
+    }
+  }
+
+  table.attachments.list {
+    margin-bottom: $default-line-height;
+    border-collapse: collapse;
+    width: 100%;
+    box-sizing: border-box;
+
+    &.sortable {
+      tr.attachment {
+        td.handle {
+          display: table-cell;
+        }
+      }
+    }
+
+    tr.attachment {
+      height: $image-height + ($padding-large*2);
+      width: 100%;
+      background-color: #eee;
+      border-bottom: 1px solid white;
+      border-left: 0;
+
+      &.has_error {
+        color: red;
+        background-color: pink;
+        height: $image-height + ($padding-large*2);
+
+        td.handle {
+          border-right: 0;
+
+          &:before,
+          &:after {
+            display: none;
+          }
+        }
+      }
+
+      td.handle {
+        display: none;
+        box-sizing: border-box;
+      }
+
+      td.hidden {
+        display: none;
+      }
+
+      td {
+        box-sizing: border-box;
+        padding: $padding-large;
+
+        &:first-child {
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
+          max-width: $padding-large*2;
+        }
+
+        &:last-child {
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px;
+        }
+      }
+
+      td.handle {
+        width: 18px;
+        vertical-align: middle;
+        color: #aaa;
+        cursor: move;
+        border-right: 1px solid white;
+        padding: 0 $padding;
+
+        &:before {
+          content: "░";
+        }
+      }
+
+      td.thumb {
+        width: $image-height + ($padding-large*2);
+
+        div.thumb {
+          width: $image-height;
+          height: $image-height;
+          background-position: center center;
+          background-repeat: no-repeat;
+          overflow: hidden;
+
+          img {
+            width: $image-height;
+            height: $image-height;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      }
+
+      td.file_info {
+        @include small-font-size;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        span {
+          display: block;
+
+          &.size {
+            &:after {
+              content: ' KB';
+            }
+          }
+        }
+      }
+
+      td.size {
+        @include small-font-size;
+      }
+
+      td.errors {
+        @include small-font-size;
+        ul.errors {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          li.error {}
+        }
+      }
+
+      td.fields {
+        input {
+          width: 100%;
+          max-width: 500px;
+        }
+      }
+
+      td.progress {
+        div.progress.container {
+          background-color: #ccc;
+          width: 100%;
+          max-width: 500px;
+
+          div.progress.bar {
+            background-color: blue;
+            width: 0;
+            height: 20px;
+          }
+        }
+      }
+
+      td.cancel.delete.close {
+        white-space: nowrap;
+        width: 1%;
+
+        button.close {
+          // @include font-awesome-before('\f00d');
+          &:before {
+            content: "\00D7";
+          }
+          margin-right: $padding-large;
+          color: red;
+        }
+      }
+    }
+  }
+
+  &.dragover {
+    border-radius: 2px;
+    outline: 6px solid yellow;
+  }
+}
+
+

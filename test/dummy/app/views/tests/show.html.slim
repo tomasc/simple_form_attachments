@@ -1,0 +1,20 @@
+- if notice
+  p#notice = notice
+  hr
+
+/ figure
+/   = image_tag @test.attachment_image.file.url, width: "300"
+/   figcaption = @test.attachment_image.caption
+
+- p @test.attachment_image_ids
+
+- @test.attachment_images.each do |attachment_image|
+  figure
+    = image_tag attachment_image.file.url, width: "300"
+    figcaption = attachment_image.caption
+
+hr
+
+div.button-group
+  = link_to 'Edit', edit_test_path(@test), class: 'button'
+  = link_to 'Back', tests_path, class: 'button'

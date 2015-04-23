@@ -1,0 +1,11 @@
+en:
+  simple_form_attachments:
+    buttons:
+      delete: Delete
+      cancel: Cancel
+      close: ''
+      disabled: Uploading …
+      file_field: Select files
+    errors:
+      one: 'There was %{count} error:'
+      other: 'There were %{count} errors:'
