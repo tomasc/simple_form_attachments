@@ -1,6 +1,6 @@
 # SimpleFormAttachments
 
-A Rails engine which takes care of creating Attachments using the [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) plugin.
+A Rails engine for creating Attachments using the [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) plugin.
 
 Dependencies:
 * [Mongoid](http://mongoid.org)
@@ -34,34 +34,9 @@ end
 
 Note that the model does not include specific accessors (ie Dragonfly). You need to define those yourself in your model.
 
-#### Views
-
-Overriding the default `attachment` partial is easy, simply add a partial following the normal rails path system (note the `simple_form_attachments` prefix path).
-
-Here is an example partial for an `AttachmentImage` model:
-```slim
-/ app/views/simple_form_attachments/attachment_images/_attachment_image.html.slim
-
-td.thumb
-  div.thumb
-    = image_tag attachment.thumb_url, alt: attachment.file_name
-
-td.file_info
-  = link_to attachment.file_name, attachment.file.url
-  span.mime_type = attachment.file_mime_type
-  span.size = attachment.file_size
-
-- if attachment.errors.to_a.any?
-  td.errors = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
-
-- else
-  td.fields
-    = fields.input :caption
-```
-
 #### Validations
 
-Standard Rails validation errors will be displayed in the uploader, should the uploaded file not pass the validations defined on the attachment model.
+Standard Rails validation errors are displayed in the uploader, should the uploaded file not pass the validations defined on the attachment model.
 
 ### Parent model
 
@@ -132,9 +107,42 @@ Now you can use the attachment input in your SimpleForm forms:
 
 ### Sorting
 
+Sorting of attachments is turned on by default for `has_many_attachments` relations. But it's possible to disable sorting on a field:
+
 ```slim
 = f.input :attachment_images, as: :attachment, sortable: false
 ```
+
+### Views
+
+Uploaded attachments are displayed in a `table`. The gem will look for a partial using the normal rails partial lookup (with a fallback to the default partial), this makes it easy to define a partial for each of your attachment models.
+
+Here is an example partial for a model called `AttachmentImage`:
+```slim
+/ app/views/simple_form_attachments/attachment_images/_attachment_image.html.slim
+/ Note the simple_form_attachments prefix!
+
+td.thumb
+  div.thumb
+    = image_tag attachment.thumb_url, alt: attachment.file_name
+
+td.file_info
+  = link_to attachment.file_name, attachment.file.url
+  span.mime_type = attachment.file_mime_type
+  span.size = attachment.file_size
+
+- if attachment.errors.to_a.any?
+  td.errors = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
+
+- else
+  td.fields
+    = fields.input :caption
+```
+
+
+#### Validation errors
+
+If you want to show validation errors in your partial, simply include the `simple_form_attachments/errors` partial as shown above.
 
 ### Route
 
