@@ -1,5 +1,7 @@
 # SimpleFormAttachments
 
+[![Build Status](https://travis-ci.org/tomasc/simple_form_attachments.svg)](https://travis-ci.org/tomasc/simple_form_attachments) [![Gem Version](https://badge.fury.io/rb/simple_form_attachments.svg)](http://badge.fury.io/rb/simple_form_attachments) [![Coverage Status](https://img.shields.io/coveralls/tomasc/simple_form_attachments.svg)](https://coveralls.io/r/tomasc/simple_form_attachments)
+
 A Rails engine which takes care of creating Attachments using the [jQuery File Upload](https://github.com/blueimp/jQuery-File-Upload) plugin.
 
 Dependencies:
