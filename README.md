@@ -96,7 +96,7 @@ after_save :mark_attachment_pdf_permanent
 after_save :mark_attachment_images_permanent
 ```
 
-These methods set (atomically) the attachment's `:temporary` attribute to false.
+These methods set (atomically) the attachment's `:temporary` attribute to `false`.
 
 The `mark_all_attachments_permanent` method that loops through all attachment relations, triggering individual abovementioned methods, is also available. The two `after_save` callbacks above can be replaced with:
 
