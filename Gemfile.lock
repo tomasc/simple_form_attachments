@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    simple_form_attachments (0.0.1)
+    simple_form_attachments (0.0.2)
       jquery-ui-rails
       rails (>= 4.2)
       rails-assets-blueimp-file-upload (>= 9.6.0)
