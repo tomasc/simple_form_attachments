@@ -22,7 +22,7 @@ Or install it yourself as:
 
     $ gem install simple_form_attachments
 
-Add `simple_form_attachments following to `application.js`:
+Add `simple_form_attachments` to `application.js`:
 
     //= require simple_form_attachments
 
