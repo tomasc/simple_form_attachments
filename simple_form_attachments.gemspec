@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 4.2"
   spec.add_dependency "simple_form", ">= 3.0.2"
 
-  spec.add_dependency "handlebars"
   spec.add_dependency "slim"
 
   spec.add_dependency "jquery-ui-rails"

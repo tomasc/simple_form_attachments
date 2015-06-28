@@ -6,8 +6,6 @@ require "simple_form_attachments/configuration"
 require "simple_form_attachments/engine"
 require "simple_form_attachments/version"
 
-require "handlebars"
-
 require "jquery-ui-rails"
 require "rails-assets-blueimp-file-upload"
 require "rails-assets-handlebars"
