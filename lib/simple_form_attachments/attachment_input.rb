@@ -75,7 +75,9 @@ module SimpleFormAttachments
       @builder.object_name
     end
 
+    # FIXME: this should be inferred also from the :as options!!
     def parent_class
+      return @builder.object.model.class.name if @builder.object.class.name.to_s =~ /decorator\z/i
       @builder.object.class.name
     end
 
