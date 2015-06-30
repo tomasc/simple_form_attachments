@@ -208,7 +208,7 @@ module SimpleFormAttachments
       table_classes << 'sortable' if sortable?
       template.content_tag :table, class: table_classes do
         @builder.simple_fields_for attribute_name do |attachment_fields|
-          template.render partial: attachment_fields.object, format: :html, layout: 'layouts/simple_form_attachments/attachment_layout',
+          template.render partial: attachment_fields.object.to_partial_path, format: :html, layout: 'layouts/simple_form_attachments/attachment_layout',
             locals: {
               attachment: attachment_fields.object,
               fields: attachment_fields,
