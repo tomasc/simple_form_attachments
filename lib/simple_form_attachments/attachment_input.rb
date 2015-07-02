@@ -25,6 +25,7 @@ module SimpleFormAttachments
         template.concat attachment_type_field
         template.concat attachment_multiple_field
         template.concat attachment_parent_class_field
+        template.concat attachment_parent_name_field
         template.concat attachment_relation_key_field
         template.concat attachment_relation_name_field
         template.concat attachment_relation_class_field
@@ -79,6 +80,10 @@ module SimpleFormAttachments
     def parent_class
       return @builder.object.model.class.name if @builder.object.class.name.to_s =~ /decorator\z/i
       @builder.object.class.name
+    end
+
+    def parent_name
+      @builder.object_name
     end
 
     def relation_class
@@ -185,6 +190,10 @@ module SimpleFormAttachments
       template.hidden_field_tag('attachment_parent[class]', parent_class)
     end
 
+    def attachment_parent_name_field
+      template.hidden_field_tag('attachment_parent[name]', parent_name)
+    end
+
     def attachment_relation_name_field
       template.hidden_field_tag('attachment_relation[name]', @attribute_name)
     end
@@ -208,7 +217,7 @@ module SimpleFormAttachments
       table_classes << 'sortable' if sortable?
       template.content_tag :table, class: table_classes do
         @builder.simple_fields_for attribute_name do |attachment_fields|
-          template.render partial: attachment_fields.object.to_partial_path, format: :html, layout: 'layouts/simple_form_attachments/attachment_layout',
+          template.render partial: "simple_form_attachments/#{attachment_fields.object.to_partial_path}", format: :html, layout: 'layouts/simple_form_attachments/attachment_layout',
             locals: {
               attachment: attachment_fields.object,
               fields: attachment_fields,

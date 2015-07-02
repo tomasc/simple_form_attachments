@@ -23,6 +23,7 @@ module SimpleFormAttachments
     def partial_locals
       {
         parent: parent,
+        parent_name: parent_name,
         parent_class: parent_class,
         child_index: child_index,
         attachment: attachment,
@@ -33,6 +34,10 @@ module SimpleFormAttachments
 
     def attachment_params
       params.require(:attachment).permit!
+    end
+
+    def parent_name
+      params[:attachment_parent][:name]
     end
 
     def attachment_class

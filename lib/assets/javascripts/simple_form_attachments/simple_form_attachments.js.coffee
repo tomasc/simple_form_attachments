@@ -43,6 +43,7 @@
         dropZone: @$element
         formData: {
           'attachment_type]': @get_attachment_type_input().val(),
+          'attachment_parent[name]': @get_attachment_parent_name_input().val(),
           'attachment_parent[class]': @get_attachment_parent_class_input().val(),
           'attachment_relation[type]': @get_attachment_relation_type_input().val(),
           'attachment_relation[key]': @get_attachment_relation_key_input().val(),
@@ -147,6 +148,8 @@
       @$element.find('input[name="attachment[multiple]"]')
     get_attachment_parent_class_input: ->
       @$element.find('input[name="attachment_parent[class]"]')
+    get_attachment_parent_name_input: ->
+      @$element.find('input[name="attachment_parent[name]"]')
     get_attachment_relation_key_input: ->
       @$element.find('input[name="attachment_relation[key]"]')
     get_attachment_relation_name_input: ->

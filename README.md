@@ -96,7 +96,7 @@ validates :attachment_pdfs, length: { maximum: 2 }
 Mount the engine in your routes:
 
 ```ruby
-  mount SimpleFormAttachments::Engine => "/"
+mount SimpleFormAttachments::Engine => "/"
 ```
 
 This will include a default `/attachments` route.
@@ -144,7 +144,6 @@ td.file_info
   td.fields
     = fields.input :caption
 ```
-
 
 #### Validation errors
 

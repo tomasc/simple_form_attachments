@@ -1,4 +1,4 @@
-- form = ActionView::Helpers::FormBuilder.new(parent_class.model_name.param_key, parent, self, {})
+- form = ActionView::Helpers::FormBuilder.new(parent_name, parent, self, {})
 
 = form.simple_fields_for attachment_relation[:name].to_sym, attachment, { child_index: child_index } do |fields|
   - partial_locals = { attachment: attachment, form: form, fields: fields, multiple: multiple, relation_key: attachment_relation[:key] }
