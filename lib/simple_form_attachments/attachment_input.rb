@@ -21,6 +21,7 @@ module SimpleFormAttachments
 
     def input wrapper_options
       template.content_tag :div, merge_wrapper_options(input_html_options, wrapper_options) do
+        template.concat attachment_blank_field
         template.concat attachment_file_field
         template.concat attachment_type_field
         template.concat attachment_multiple_field
@@ -166,6 +167,10 @@ module SimpleFormAttachments
     end
 
     # ---------------------------------------------------------------------
+
+    def attachment_blank_field
+      template.hidden_field_tag("#{parent_name}[#{relation_key}][]", nil)
+    end
 
     def attachment_file_field
       input_html_options = {
