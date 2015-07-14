@@ -101,11 +101,13 @@
 
       @$element.on 'click', 'button.delete, button.close', (e) =>
         e.preventDefault()
+        e.stopPropagation()
         $template = $(e.currentTarget).closest('tr')
         @remove_template($template)
 
       @$element.on 'click', 'button.cancel', (e) =>
         e.preventDefault()
+        e.stopPropagation()
         $template = $(e.currentTarget).closest('tr')
         data = $template.data('data') || {}
         @enable_form_submit()
