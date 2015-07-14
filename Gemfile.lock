@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    simple_form_attachments (0.0.5)
+    simple_form_attachments (0.0.6)
       jquery-ui-rails
       rails (>= 4.2)
       rails-assets-blueimp-file-upload (>= 9.6.0)
@@ -49,7 +49,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    arel (6.0.0)
+    arel (6.0.2)
     bson (3.1.2)
     builder (3.2.2)
     coderay (1.1.0)
@@ -92,7 +92,7 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
-    listen (3.0.1)
+    listen (3.0.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     loofah (2.0.2)
@@ -145,7 +145,7 @@ GEM
       railties (= 4.2.3)
       sprockets-rails
     rails-assets-blueimp-canvas-to-blob (2.1.1)
-    rails-assets-blueimp-file-upload (9.10.3)
+    rails-assets-blueimp-file-upload (9.10.4)
       rails-assets-blueimp-canvas-to-blob (>= 2.1.1)
       rails-assets-blueimp-load-image (>= 1.13.0)
       rails-assets-blueimp-tmpl (>= 2.5.4)
