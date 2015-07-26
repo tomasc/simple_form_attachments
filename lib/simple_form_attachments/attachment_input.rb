@@ -40,7 +40,7 @@ module SimpleFormAttachments
     def input_html_options
       super.merge!(
         data: {
-          attachments_path: options.fetch(:route, SimpleFormAttachments::Engine.routes.url_helpers.attachments_path),
+          attachments_path: options.fetch(:route, AttachmentInput.configuration.route),
           max_number_of_files: options.fetch(:max_number_of_files, nil),
           disabled_submit_text: I18n.t(:disabled, scope: 'simple_form_attachments.buttons'),
           sortable: sortable?.to_s
@@ -169,7 +169,11 @@ module SimpleFormAttachments
     # ---------------------------------------------------------------------
 
     def attachment_blank_field
-      template.hidden_field_tag("#{parent_name}[#{relation_key}][]", nil)
+      if multiple?
+        template.hidden_field_tag("#{parent_name}[#{relation_key}][]", nil)
+      else
+        template.hidden_field_tag("#{parent_name}[#{relation_key}]", nil)
+      end
     end
 
     def attachment_file_field
