@@ -11,6 +11,10 @@ module SimpleFormAttachments
 
       scope :temporary, -> { where(temporary: true) }
       scope :permanent, -> { where(temporary: false) }
+
+      def to_simple_form_partial_path
+        ['simple_form_attachments', to_partial_path].join('/')
+      end
     end
   end
 end

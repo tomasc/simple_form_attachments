@@ -3,5 +3,4 @@
 = form.simple_fields_for attachment_relation[:name].to_sym, attachment, { child_index: child_index } do |fields|
   - partial_locals = { attachment: attachment, form: form, fields: fields, multiple: multiple, relation_key: attachment_relation[:key] }
   - partial_layout = 'layouts/simple_form_attachments/attachment_layout'
-
-  = render partial: attachment, format: :html, layout: partial_layout, locals: partial_locals rescue render partial: 'simple_form_attachments/attachments/attachment', format: :html, layout: partial_layout, locals: partial_locals
+  = render partial: attachment.to_simple_form_partial_path, format: :html, layout: partial_layout, locals: partial_locals rescue render partial: 'simple_form_attachments/attachments/attachment', format: :html, layout: partial_layout, locals: partial_locals
