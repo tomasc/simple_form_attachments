@@ -9,9 +9,20 @@
   defaults =
     debug: false
     sortable_options:
-      items: 'tr'
       handle: '.handle'
       axis: 'y'
+      items: '> tr'
+      forcePlaceholderSize: true
+      placeholder: 'attachment-placeholder'
+      start: (event, ui) ->
+        cellCount = 0
+        $('td, th', ui.helper).each ->
+          colspan = 1
+          colspanAttr = $(this).attr('colspan')
+          if colspanAttr > 1 then colspan = colspanAttr
+          cellCount += colspan
+        ui.placeholder.html '<td colspan="#{cellCount}">&nbsp;</td>'
+
     slide_speed: 'fast'
 
   # ---------------------------------------------------------------------
@@ -34,7 +45,8 @@
       @init_fileupload()
 
     init_sortable: () ->
-      @get_attachment_list().sortable(@options.sortable_options)
+      @get_attachment_list().add( @get_attachment_list().find('th, td') ).each -> $(this).outerWidth $(this).outerWidth()
+      @get_attachment_list().find('tbody').sortable(@options.sortable_options).disableSelection()
 
     init_fileupload: () ->
       console.log "init jQuery.fileupload" if @options.debug
@@ -83,6 +95,7 @@
         fail: (e, data) =>
           @set_logs(e, data) if @options.debug
           $result = $(JSON.parse(data.jqXHR.responseText).html).addClass('has_error')
+          $result.find('td.errors').attr('colspan', '3');
           data.context.replaceWith($result)
 
         progress: (e, data) =>

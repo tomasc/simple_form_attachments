@@ -34,6 +34,7 @@ body {
   @include default-font-size;
 }
 
+
 // --------------------------------------------------------------------
 
 input[type="file"] {
@@ -51,10 +52,11 @@ div.input.attachment {
   }
 
   table.attachments.list {
+    width: 100%;
     margin-bottom: $default-line-height;
     border-collapse: collapse;
-    width: 100%;
-    box-sizing: border-box;
+
+    // ---------------------------------------------------------------------
 
     &.sortable {
       tr.attachment {
@@ -64,31 +66,51 @@ div.input.attachment {
       }
     }
 
+    // ---------------------------------------------------------------------
+
+    tr.attachment-placeholder,
     tr.attachment {
-      height: $image-height + ($padding-large*2);
       width: 100%;
+      height: $image-height + ($padding-large*2);
+    }
+
+    tr.attachment {
       background-color: #eee;
       border-bottom: 1px solid white;
-      border-left: 0;
 
       &.has_error {
         color: red;
         background-color: pink;
+        width: 100%;
         height: $image-height + ($padding-large*2);
 
         td.handle {
+          color: transparent;
+          text-shadow: none;
           border-right: 0;
-
-          &:before,
-          &:after {
-            display: none;
-          }
         }
       }
 
       td.handle {
         display: none;
-        box-sizing: border-box;
+        content: '....';
+        border-right: 1px solid #FFF;
+        padding: 0 $padding $padding-large $padding;
+        overflow: hidden;
+        cursor: move;
+        margin-top: -20px;
+        vertical-align: middle;
+        font-size: 12px;
+        line-height: 5px;
+        font-family: sans-serif;
+        letter-spacing: 2px;
+        color: #aaa;
+        text-shadow: 1px 0 1px #eee;
+        width: 10px;
+
+        &:after {
+          content: '.. .. .. ..';
+        }
       }
 
       td.hidden {
@@ -96,7 +118,6 @@ div.input.attachment {
       }
 
       td {
-        box-sizing: border-box;
         padding: $padding-large;
 
         &:first-child {
@@ -108,19 +129,6 @@ div.input.attachment {
         &:last-child {
           border-top-right-radius: 2px;
           border-bottom-right-radius: 2px;
-        }
-      }
-
-      td.handle {
-        width: 18px;
-        vertical-align: middle;
-        color: #aaa;
-        cursor: move;
-        border-right: 1px solid white;
-        padding: 0 $padding;
-
-        &:before {
-          content: "░";
         }
       }
 
@@ -216,5 +224,3 @@ div.input.attachment {
     outline: 6px solid yellow;
   }
 }
-
-
