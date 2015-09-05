@@ -223,9 +223,4 @@
 
 # =====================================================================
 
-$ ->
-
-  $('div.simple_form_attachments').simple_form_attachments()
-
-  $('body').on 'dom_update', (e) ->
-    $('div.simple_form_attachments').simple_form_attachments()
+$ -> $('div.simple_form_attachments').simple_form_attachments()
