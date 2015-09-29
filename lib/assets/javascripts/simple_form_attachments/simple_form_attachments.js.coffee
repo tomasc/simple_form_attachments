@@ -45,7 +45,6 @@
       @init_fileupload()
 
     init_sortable: () ->
-      @get_attachment_list().add( @get_attachment_list().find('th, td') ).each -> $(this).outerWidth $(this).outerWidth()
       @get_attachment_list().find('tbody').sortable(@options.sortable_options).disableSelection()
 
     init_fileupload: () ->
