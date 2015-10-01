@@ -40,7 +40,7 @@ module SimpleFormAttachments
     def input_html_options
       super.merge!(
         data: {
-          attachments_path: options.fetch(:route, AttachmentInput.configuration.route),
+          attachments_path: options.fetch(:route, route_from_configuration),
           max_number_of_files: options.fetch(:max_number_of_files, nil),
           disabled_submit_text: I18n.t(:disabled, scope: 'simple_form_attachments.buttons'),
           sortable: sortable?.to_s
@@ -50,6 +50,13 @@ module SimpleFormAttachments
 
     def input_html_classes
       super.push('simple_form_attachments')
+    end
+
+    # ---------------------------------------------------------------------
+
+    def route_from_configuration
+      res = AttachmentInput.configuration.route
+      res.respond_to?(:call) ? res.call : res
     end
 
     # ---------------------------------------------------------------------

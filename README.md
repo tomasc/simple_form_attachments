@@ -184,6 +184,7 @@ require 'simple_form_attachments'
 
 SimpleFormAttachments::AttachmentInput.configure do |c|
   c.route = attachments_path
+  # can be also specified as a lambda to be evaluated at runtime: -> { attachments_path }
 end
 ```
 
