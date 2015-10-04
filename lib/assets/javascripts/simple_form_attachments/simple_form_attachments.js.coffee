@@ -152,7 +152,7 @@
     get_disabled_submit_text: -> @$element.data('disabled-submit-text')
     get_file_input: -> @$element.find('input.file')
     get_form: -> @$element.parents('form').first()
-    get_form_submit: -> @get_form().find('input[type="submit"]')
+    get_form_submit: -> @get_form().find('input[type="submit"]').first()
     get_max_number_of_files: -> @$element.data('max-number-of-files')
     get_number_of_files: ->
       @get_attachment_list().children('tr').not('.has_error').length
