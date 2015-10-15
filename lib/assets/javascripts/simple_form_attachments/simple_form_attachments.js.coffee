@@ -106,7 +106,8 @@
         done: (e, data) =>
           @set_logs(e, data) if @options.debug
           console.log data.result.html if @options.debug
-          data.context.replaceWith data.result.html
+          $result = $(data.result.html).addClass('uploaded')
+          data.context.replaceWith $result
 
         stop: (e, data) =>
           @set_logs(e, data) if @options.debug
