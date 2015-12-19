@@ -11,7 +11,7 @@ module SimpleFormAttachments
 
     let(:params) {
       {
-        attachment: { temporary: true },
+        attachment: { body: 'foo' },
         attachment_parent: { class: 'Parent' },
         attachment_relation: { name: 'attachments', multiple: true },
         attachment_type: "Attachment"
@@ -23,7 +23,6 @@ module SimpleFormAttachments
     # ---------------------------------------------------------------------
 
     describe '#create' do
-
       it 'should succeed' do
         action
         must_respond_with :success
@@ -33,6 +32,13 @@ module SimpleFormAttachments
         assert_difference '::Attachment.count' do
           action
         end
+      end
+
+      it 'must mark the newly upladed attachment as temporary' do
+        action
+        assigns(:attachment).must_be :present?
+        assigns(:attachment).body.must_equal 'foo'
+        assigns(:attachment).temporary.must_equal true
       end
 
       describe 'returned JSON' do
