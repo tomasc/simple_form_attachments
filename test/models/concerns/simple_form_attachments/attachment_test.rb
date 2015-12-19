@@ -2,8 +2,8 @@ require 'test_helper'
 require_relative '../../../../app/models/concerns/simple_form_attachments/attachment'
 
 describe Attachment do
-  let(:temporary_attachment) { Attachment.new }
-  let(:permanent_attachment) { Attachment.new(temporary: false) }
+  let(:temporary_attachment) { Attachment.new(temporary: true) }
+  let(:permanent_attachment) { Attachment.new }
 
   before do
     temporary_attachment.save

@@ -38,7 +38,7 @@ class AttachmentImage
 end
 ```
 
-This adds a `:temporary` Boolean field and two scopes: `temporary` and `permanent` to the model.
+This adds a `:temporary` Boolean field (set to `false` by default) and two scopes: `temporary` and `permanent` to the model.
 
 Note that the concern does not include any specific accessors (ie Dragonfly). You need to define those yourself in your model.
 
@@ -66,7 +66,7 @@ You could use for example the `before_save` callback to embed the attachments yo
 
 #### Callbacks
 
-Since attachments can be added/removed dynamically in the form, we need to indicate which ones are actually submitted in the end, so that we can – immediately or later – delete the temporary ones.
+Since attachments can be added/removed dynamically in the form, we need to indicate which ones are actually submitted in the end, so that we can – immediately or later (left up to you) – delete the temporary ones.
 
 For that each relation defines a method named after the relation name, which can be called for example via a callback:
 
@@ -77,7 +77,7 @@ after_save :mark_attachment_images_permanent
 
 These methods (atomically) set the attachment's `:temporary` attribute to `false`.
 
-Alternatively the `mark_all_attachments_permanent` method can be used to loop through all attachment relations, triggering individual abovementioned methods. This means the two `after_save` callbacks above can be replaced with:
+Alternatively the `mark_all_attachments_permanent` method can be used to loop through all attachment relations, triggering individual above-mentioned methods. This means the two `after_save` callbacks above can be replaced with:
 
 ```ruby
 after_save :mark_all_attachments_permanent
@@ -90,6 +90,12 @@ If you want to validate the number of attachments allowed on the owner, you can 
 ```ruby
 validates :attachment_pdfs, length: { maximum: 2 }
 ```
+
+### Controller
+
+The default `UploadController` receives the uploaded attachment, sets its `temporary` to `true` and creates corresponding record in the database.
+
+Remember, you need to mark attachments as permanent (ie `temporary` to `false`) yourself. See Callbacks above.
 
 ### Routes
 

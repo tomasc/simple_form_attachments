@@ -1,6 +1,5 @@
 module SimpleFormAttachments
   class UploadController < ActionController::Base
-
     def create
       res = attachment.save
       render json: attachment_json, status: (res ? :ok : :unprocessable_entity)
@@ -9,7 +8,7 @@ module SimpleFormAttachments
     private # =============================================================
 
     def attachment
-      @attachment ||= attachment_class.new attachment_params
+      @attachment ||= attachment_class.new({ temporary: true }.merge(attachment_params))
     end
 
     def attachment_json
@@ -52,7 +51,7 @@ module SimpleFormAttachments
     def parent
       return unless params[:attachment_relation]
       if multiple? && attachment.errors.empty?
-        parent_class.new{ |o| o.send(params.fetch(:attachment_relation).fetch(:name).to_sym) << attachment }
+        parent_class.new { |o| o.send(params.fetch(:attachment_relation).fetch(:name).to_sym) << attachment }
       else
         parent_class.new
       end
@@ -71,6 +70,5 @@ module SimpleFormAttachments
     def referenced?
       ['true', true, '1', 1].include? params.fetch(:attachment_relation, {}).fetch(:referenced, false)
     end
-
   end
 end

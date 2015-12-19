@@ -2,15 +2,14 @@ require 'test_helper'
 require_relative '../../../../app/models/concerns/simple_form_attachments/has_attachments'
 
 describe Parent do
-
   let(:parent) { Parent.new }
 
   let(:attachment_reflection) { parent.reflect_on_association(:attachment) }
   let(:attachments_reflection) { parent.reflect_on_association(:attachments) }
 
-  let(:related_attachment_one) { Attachment.create }
-  let(:related_attachment_two) { Attachment.create }
-  let(:unrelated_attachment) { Attachment.create }
+  let(:related_attachment_one) { Attachment.create(temporary: true) }
+  let(:related_attachment_two) { Attachment.create(temporary: true) }
+  let(:unrelated_attachment) { Attachment.create(temporary: true) }
 
   # ---------------------------------------------------------------------
 
@@ -26,7 +25,7 @@ describe Parent do
     end
 
     it 'respects definition of :class_name' do
-      attachments_reflection.class_name.must_equal "Attachment"
+      attachments_reflection.class_name.must_equal 'Attachment'
     end
 
     it 'passes the :dependent option to the relation' do
@@ -34,12 +33,12 @@ describe Parent do
     end
 
     it 'returns attachments in same order as in which its ids have been stored' do
-      parent.attachments.sorted.must_equal parent.attachments.sort_by{ |a| parent.attachment_ids.index(a.id) }
+      parent.attachments.sorted.must_equal parent.attachments.sort_by { |a| parent.attachment_ids.index(a.id) }
     end
 
     it 'returns attachments in the same order as attachment_ids' do
       parent.attachment_ids = [related_attachment_one.id, related_attachment_two.id]
-      parent.attachments.sorted.must_equal parent.attachments.sort_by{ |a| parent.attachment_ids.index(a.id) }
+      parent.attachments.sorted.must_equal parent.attachments.sort_by { |a| parent.attachment_ids.index(a.id) }
     end
   end
 
@@ -50,7 +49,7 @@ describe Parent do
       parent.must_respond_to :attachment
     end
     it 'respects definition of :class_name' do
-      attachment_reflection.class_name.must_equal "Attachment"
+      attachment_reflection.class_name.must_equal 'Attachment'
     end
     it 'passes the :dependent option to the relation' do
       attachments_reflection.dependent.must_equal :destroy
@@ -111,5 +110,4 @@ describe Parent do
   end
 
   # ---------------------------------------------------------------------
-
 end

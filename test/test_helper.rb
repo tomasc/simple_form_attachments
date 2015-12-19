@@ -54,6 +54,7 @@ end
 
 class Attachment
   include SimpleFormAttachments::Attachment
+  field :body, type: String
 end
 
 class Parent
