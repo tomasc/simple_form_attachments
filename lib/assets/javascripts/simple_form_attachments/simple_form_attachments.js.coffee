@@ -41,6 +41,7 @@
       @attachments_counter = 0
 
     init: ->
+      @get_file_input().on 'fileuploadalways', (e) => @init_sortable() if @is_sortable()
       @init_sortable() if @is_sortable()
       @init_fileupload()
 
