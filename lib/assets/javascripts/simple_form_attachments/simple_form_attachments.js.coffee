@@ -28,7 +28,6 @@
   # ---------------------------------------------------------------------
 
   class Plugin
-
     constructor: (@element, options) ->
       @options = $.extend {}, defaults, options
 
@@ -46,7 +45,7 @@
       @init_fileupload()
 
     init_sortable: () ->
-      @get_attachment_list().find('tbody').sortable(@options.sortable_options).disableSelection()
+      @get_attachment_list().find('tbody').sortable(@options.sortable_options)#.disableSelection()
 
     init_fileupload: () ->
       console.log "init jQuery.fileupload" if @options.debug
@@ -155,25 +154,16 @@
     get_form: -> @$element.parents('form').first()
     get_form_submit: -> @get_form().find('input[type="submit"]').first()
     get_max_number_of_files: -> @$element.data('max-number-of-files')
-    get_number_of_files: ->
-      @get_attachment_list().children('tr').not('.has_error').length
+    get_number_of_files: -> @get_attachment_list().children('tr').not('.has_error').length
 
-    get_attachment_type_input: ->
-      @$element.find('input[name="attachment_type"]')
-    get_attachment_multiple_input: ->
-      @$element.find('input[name="attachment[multiple]"]')
-    get_attachment_parent_class_input: ->
-      @$element.find('input[name="attachment_parent[class]"]')
-    get_attachment_parent_name_input: ->
-      @$element.find('input[name="attachment_parent[name]"]')
-    get_attachment_relation_key_input: ->
-      @$element.find('input[name="attachment_relation[key]"]')
-    get_attachment_relation_name_input: ->
-      @$element.find('input[name="attachment_relation[name]"]')
-    get_attachment_relation_type_input: ->
-      @$element.find('input[name="attachment_relation[type]"]')
-    get_attachment_relation_referenced_input: ->
-      @$element.find('input[name="attachment_relation[referenced]"]')
+    get_attachment_type_input: -> @$element.find('input[name="attachment_type"]')
+    get_attachment_multiple_input: -> @$element.find('input[name="attachment[multiple]"]')
+    get_attachment_parent_class_input: -> @$element.find('input[name="attachment_parent[class]"]')
+    get_attachment_parent_name_input: -> @$element.find('input[name="attachment_parent[name]"]')
+    get_attachment_relation_key_input: -> @$element.find('input[name="attachment_relation[key]"]')
+    get_attachment_relation_name_input: -> @$element.find('input[name="attachment_relation[name]"]')
+    get_attachment_relation_type_input: -> @$element.find('input[name="attachment_relation[type]"]')
+    get_attachment_relation_referenced_input: -> @$element.find('input[name="attachment_relation[referenced]"]')
 
     get_relation_name: -> @$element.data('relation-name')
     get_relation_key: -> @$element.data('relation-key')
