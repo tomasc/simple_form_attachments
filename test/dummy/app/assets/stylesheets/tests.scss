@@ -37,11 +37,6 @@ body {
 
 // --------------------------------------------------------------------
 
-input[type="file"] {
-  margin: 0;
-  padding: 0;
-}
-
 div.input.attachment {
   label[for="attachment_file"] {
     margin-bottom: $default-line-height;
@@ -51,176 +46,188 @@ div.input.attachment {
     }
   }
 
-  table.attachments.list {
-    width: 100%;
-    margin-bottom: $default-line-height;
-    border-collapse: collapse;
+  div.simple_form_attachments {
 
-    // ---------------------------------------------------------------------
-
-    &.sortable {
-      tr.attachment {
-        td.handle {
-          display: table-cell;
-        }
-      }
+    input[type="file"] {
+      margin: 0;
+      padding: 0;
     }
 
     // ---------------------------------------------------------------------
 
-    tr.attachment-placeholder,
-    tr.attachment {
+    table.attachments.list {
       width: 100%;
-      height: $image-height + ($padding-large*2);
-    }
+      margin-bottom: $default-line-height;
+      border-collapse: collapse;
 
-    tr.attachment {
-      background-color: #eee;
-      border-bottom: 1px solid white;
+      // ---------------------------------------------------------------------
 
-      &.has_error {
-        color: red;
-        background-color: pink;
-        width: 100%;
-        height: $image-height + ($padding-large*2);
-
-        td.handle {
-          color: transparent;
-          text-shadow: none;
-          border-right: 0;
-        }
-      }
-
-      td.handle {
-        display: none;
-        content: '....';
-        border-right: 1px solid #FFF;
-        padding: 0 $padding $padding-large $padding;
-        overflow: hidden;
-        cursor: move;
-        margin-top: -20px;
-        vertical-align: middle;
-        font-size: 12px;
-        line-height: 5px;
-        font-family: sans-serif;
-        letter-spacing: 2px;
-        color: #aaa;
-        text-shadow: 1px 0 1px #eee;
-        width: 10px;
-
-        &:after {
-          content: '.. .. .. ..';
-        }
-      }
-
-      td.hidden {
-        display: none;
-      }
-
-      td {
-        padding: $padding-large;
-
-        &:first-child {
-          border-top-left-radius: 2px;
-          border-bottom-left-radius: 2px;
-          max-width: $padding-large*2;
-        }
-
-        &:last-child {
-          border-top-right-radius: 2px;
-          border-bottom-right-radius: 2px;
-        }
-      }
-
-      td.thumb {
-        width: $image-height + ($padding-large*2);
-
-        div.thumb {
-          width: $image-height;
-          height: $image-height;
-          background-position: center center;
-          background-repeat: no-repeat;
-          overflow: hidden;
-
-          img {
-            width: $image-height;
-            height: $image-height;
-            object-fit: cover;
-            object-position: center;
+      &.sortable {
+        tr.attachment {
+          td.handle {
+            display: table-cell;
           }
         }
       }
 
-      td.file_info {
-        @include small-font-size;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+      // ---------------------------------------------------------------------
 
-        span {
-          display: block;
+      tr.attachment-placeholder,
+      tr.attachment {
+        width: 100%;
+        height: $image-height + ($padding-large*2);
+      }
 
-          &.size {
-            &:after {
-              content: ' KB';
+      tr.attachment {
+        background-color: #eee;
+        border-bottom: 1px solid white;
+
+        &.has_error {
+          color: red;
+          background-color: pink;
+          width: 100%;
+          height: $image-height + ($padding-large*2);
+
+          td.handle {
+            color: transparent;
+            text-shadow: none;
+            border-right: 0;
+          }
+        }
+
+        td.handle {
+          display: none;
+          content: '....';
+          border-right: 1px solid #FFF;
+          padding: 0 $padding $padding-large $padding;
+          overflow: hidden;
+          cursor: move;
+          margin-top: -20px;
+          vertical-align: middle;
+          font-size: 12px;
+          line-height: 5px;
+          font-family: sans-serif;
+          letter-spacing: 2px;
+          color: #aaa;
+          text-shadow: 1px 0 1px #eee;
+          width: 10px;
+
+          &:after {
+            content: '.. .. .. ..';
+          }
+        }
+
+        td.hidden {
+          display: none;
+        }
+
+        td {
+          padding: $padding-large;
+
+          &:first-child {
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            max-width: $padding-large*2;
+          }
+
+          &:last-child {
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+          }
+        }
+
+        td.thumb {
+          width: $image-height + ($padding-large*2);
+
+          div.thumb {
+            width: $image-height;
+            height: $image-height;
+            background-position: center center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+
+            img {
+              width: $image-height;
+              height: $image-height;
+              object-fit: cover;
+              object-position: center;
             }
           }
         }
-      }
 
-      td.size {
-        @include small-font-size;
-      }
+        td.file_info {
+          @include small-font-size;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
 
-      td.errors {
-        @include small-font-size;
-        ul.errors {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          li.error {}
-        }
-      }
+          span {
+            display: block;
 
-      td.fields {
-        input {
-          width: 100%;
-          max-width: 500px;
-        }
-      }
-
-      td.progress {
-        div.progress.container {
-          background-color: #ccc;
-          width: 100%;
-          max-width: 500px;
-
-          div.progress.bar {
-            background-color: blue;
-            width: 0;
-            height: 20px;
+            &.size {
+              &:after {
+                content: ' KB';
+              }
+            }
           }
         }
-      }
 
-      td.cancel.delete.close {
-        white-space: nowrap;
-        width: 1%;
+        td.size {
+          @include small-font-size;
+        }
 
-        button.close {
-          // @include font-awesome-before('\f00d');
-          &:before {
-            content: "\00D7";
+        td.errors {
+          @include small-font-size;
+          ul.errors {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li.error {}
           }
-          margin-right: $padding-large;
-          color: red;
+        }
+
+        td.fields {
+          input {
+            width: 100%;
+            max-width: 500px;
+          }
+        }
+
+        td.progress {
+          div.progress.container {
+            background-color: #ccc;
+            width: 100%;
+            max-width: 500px;
+
+            div.progress.bar {
+              background-color: blue;
+              width: 0;
+              height: 20px;
+            }
+          }
+        }
+
+        td.cancel.delete.close {
+          white-space: nowrap;
+          width: 1%;
+
+          button.close {
+            // @include font-awesome-before('\f00d');
+            &:before {
+              content: "\00D7";
+            }
+            margin-right: $padding-large;
+            color: red;
+          }
         }
       }
     }
-  }
 
-  &.dragover {
-    border-radius: 2px;
-    outline: 6px solid yellow;
+    // ---------------------------------------------------------------------
+
+    &.dragover {
+      border-radius: 2px;
+      outline: 1px solid yellow;
+    }
   }
 }
