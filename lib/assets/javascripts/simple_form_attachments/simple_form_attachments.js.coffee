@@ -14,6 +14,7 @@
       items: '> tr'
       forcePlaceholderSize: true
       placeholder: 'attachment-placeholder'
+      containment: 'parent'
       start: (event, ui) ->
         cellCount = 0
         $('td, th', ui.helper).each ->
