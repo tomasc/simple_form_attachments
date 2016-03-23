@@ -1,11 +1,11 @@
 tr.attachment class=('uploaded' if attachment.present? && attachment.errors.to_a.blank?)
   td.handle
 
+  = yield
+
   td.hidden
     = fields.hidden_field :id
     = form.hidden_field(relation_key, multiple: multiple, value: attachment.id) if attachment.errors.empty?
-
-  = yield
 
   td.cancel.delete.close
     - if attachment.errors.to_a.any?
