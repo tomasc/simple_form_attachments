@@ -7,9 +7,9 @@ describe Parent do
   let(:attachment_reflection) { parent.reflect_on_association(:attachment) }
   let(:attachments_reflection) { parent.reflect_on_association(:attachments) }
 
-  let(:related_attachment_one) { Attachment.create(temporary: true) }
-  let(:related_attachment_two) { Attachment.create(temporary: true) }
-  let(:unrelated_attachment) { Attachment.create(temporary: true) }
+  let(:related_attachment_one) { AttachmentTest.create(temporary: true) }
+  let(:related_attachment_two) { AttachmentTest.create(temporary: true) }
+  let(:unrelated_attachment) { AttachmentTest.create(temporary: true) }
 
   # ---------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ describe Parent do
     end
 
     it 'respects definition of :class_name' do
-      attachments_reflection.class_name.must_equal 'Attachment'
+      attachments_reflection.class_name.must_equal 'AttachmentTest'
     end
 
     it 'passes the :dependent option to the relation' do
@@ -49,7 +49,7 @@ describe Parent do
       parent.must_respond_to :attachment
     end
     it 'respects definition of :class_name' do
-      attachment_reflection.class_name.must_equal 'Attachment'
+      attachment_reflection.class_name.must_equal 'AttachmentTest'
     end
     it 'passes the :dependent option to the relation' do
       attachments_reflection.dependent.must_equal :destroy
@@ -85,11 +85,13 @@ describe Parent do
     before do
       parent.attachments << related_attachment_one
     end
+    
     it 'marks has_many attachments as permanent' do
       related_attachment_one.reload.temporary.must_equal true
       parent.send(:mark_attachments_permanent)
       related_attachment_one.reload.temporary.must_equal false
     end
+
     it 'does not mark other attachments as permanent' do
       unrelated_attachment.temporary.must_equal true
     end
@@ -99,15 +101,15 @@ describe Parent do
     before do
       parent.attachment = related_attachment_two
     end
+
     it 'marks has_many attachments as permanent' do
       related_attachment_two.reload.temporary.must_equal true
       parent.send(:mark_attachment_permanent)
       related_attachment_two.reload.temporary.must_equal false
     end
+
     it 'does not mark other attachments as permanent' do
       unrelated_attachment.temporary.must_equal true
     end
   end
-
-  # ---------------------------------------------------------------------
 end

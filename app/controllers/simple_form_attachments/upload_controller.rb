@@ -1,33 +1,30 @@
 module SimpleFormAttachments
   class UploadController < ActionController::Base
+    def show
+      @attachment = attachment_class.find(params[:id])
+      render json: { html: attachment_html }, status: :ok
+    end
+
     def create
-      res = attachment.save
-      render json: attachment_json, status: (res ? :ok : :unprocessable_entity)
+      @attachment = attachment_class.new({ temporary: true }.merge(attachment_params))
+      res = @attachment.save
+      render json: { html: attachment_html }, status: (res ? :ok : :unprocessable_entity)
     end
 
     private # =============================================================
 
-    def attachment
-      @attachment ||= attachment_class.new({ temporary: true }.merge(attachment_params))
-    end
-
-    def attachment_json
-      { html: attachment_html }
-    end
-
     def attachment_html
-      render_to_string partial: 'simple_form_attachments/attachment_upload_template', locals: partial_locals
+      render_to_string(partial: 'simple_form_attachments/attachment_upload_template', locals: partial_locals.merge(attachment: @attachment))
     end
 
     def partial_locals
       {
-        parent: parent,
-        parent_name: parent_name,
-        parent_class: parent_class,
+        attachment_relation: attachment_relation,
         child_index: child_index,
-        attachment: attachment,
         multiple: multiple?,
-        attachment_relation: params[:attachment_relation]
+        parent: parent,
+        parent_class: parent_class,
+        parent_name: parent_name
       }
     end
 
@@ -35,40 +32,56 @@ module SimpleFormAttachments
       params.require(:attachment).permit!
     end
 
-    def parent_name
-      params[:attachment_parent][:name]
-    end
-
     def attachment_class
-      params[:attachment_type].constantize
+      params.fetch(:attachment_type).constantize
     end
 
-    def parent_class
-      return unless params[:attachment_parent]
-      params[:attachment_parent][:class].constantize
+    def attachment_relation
+      params.fetch(:attachment_relation, {})
     end
 
-    def parent
-      return unless params[:attachment_relation]
-      if multiple? && attachment.errors.empty?
-        parent_class.new { |o| o.send(params.fetch(:attachment_relation).fetch(:name).to_sym) << attachment }
-      else
-        parent_class.new
-      end
+    def attachment_relation_name
+      attachment_relation.fetch(:name).to_sym
     end
 
     def child_index
       DateTime.now.strftime('%Q').to_i
     end
 
-    # ---------------------------------------------------------------------
+    def multiple_from_params
+      attachment_relation.fetch(:multiple, false)
+    end
 
     def multiple?
-      ['true', true, '1', 1].include? params.fetch(:attachment_relation, {}).fetch(:multiple, false)
+      ['true', true, '1', 1].include?(multiple_from_params)
+    end
+
+    def referenced_from_params
+      attachment_relation.fetch(:referenced, false)
     end
 
     def referenced?
-      ['true', true, '1', 1].include? params.fetch(:attachment_relation, {}).fetch(:referenced, false)
+      ['true', true, '1', 1].include?(referenced_from_params)
+    end
+
+    def parent
+      return unless params[:attachment_relation].present?
+      return parent_class.new unless multiple? && @attachment.errors.empty?
+      parent_class.new do |obj|
+        obj.send(attachment_relation_name) << @attachment
+      end
+    end
+
+    def attachment_parent
+      params.fetch(:attachment_parent, {})
+    end
+
+    def parent_class
+      attachment_parent.fetch(:class, nil).safe_constantize
+    end
+
+    def parent_name
+      attachment_parent.fetch(:name, nil)
     end
   end
 end

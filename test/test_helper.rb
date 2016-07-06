@@ -52,7 +52,8 @@ end
 
 # ---------------------------------------------------------------------
 
-class Attachment
+class AttachmentTest
+  include Mongoid::Document
   include SimpleFormAttachments::Attachment
   field :body, type: String
 end
@@ -61,6 +62,6 @@ class Parent
   include Mongoid::Document
   include SimpleFormAttachments::HasAttachments
 
-  has_one_attachment :attachment, class_name: 'Attachment', dependent: :destroy
-  has_many_attachments :attachments, class_name: 'Attachment', dependent: :destroy
+  has_one_attachment :attachment, class_name: 'AttachmentTest', dependent: :destroy
+  has_many_attachments :attachments, class_name: 'AttachmentTest', dependent: :destroy
 end
