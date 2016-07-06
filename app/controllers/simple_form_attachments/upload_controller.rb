@@ -6,12 +6,18 @@ module SimpleFormAttachments
     end
 
     def create
-      @attachment = attachment_class.new({ temporary: true }.merge(attachment_params))
+      @attachment = new_attachment
       res = @attachment.save
       render json: { html: attachment_html }, status: (res ? :ok : :unprocessable_entity)
     end
 
     private # =============================================================
+
+    def new_attachment
+      attachment_class.new(attachment_params).tap do |att|
+        att.temporary = true
+      end
+    end
 
     def attachment_html
       render_to_string(partial: 'simple_form_attachments/attachment_upload_template', locals: partial_locals.merge(attachment: @attachment))
