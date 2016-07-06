@@ -101,17 +101,17 @@ module SimpleFormAttachments
 
     def multiple?
       return false unless relation
-      !!relation.macro.end_with?('many')
+      !!relation.macro.to_s.end_with?('many')
     end
 
     def referenced?
       return false unless relation
-      !!relation_class.end_with?('Referenced')
+      !!relation_class.to_s.end_with?('Referenced')
     end
 
     def embedded?
       return false unless relation
-      !!relation_class.end_with?('Embedded')
+      !!relation_class.to_s.end_with?('Embedded')
     end
 
     def sortable?
