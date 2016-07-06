@@ -3,7 +3,6 @@ require 'i18n'
 
 module SimpleFormAttachments
   class AttachmentInput < SimpleForm::Inputs::Base
-
     class << self
       attr_accessor :configuration
 
@@ -19,7 +18,7 @@ module SimpleFormAttachments
 
     # =====================================================================
 
-    def input wrapper_options
+    def input(wrapper_options)
       template.content_tag :div, merge_wrapper_options(input_html_options, wrapper_options) do
         template.concat attachment_blank_field
         template.concat attachment_file_field
@@ -102,17 +101,17 @@ module SimpleFormAttachments
 
     def multiple?
       return false unless relation
-      !!(relation.macro =~ /many\z/)
+      !!relation.macro.end_with?('many')
     end
 
     def referenced?
       return false unless relation
-      !!(relation_class =~ /Referenced\z/)
+      !!relation_class.end_with?('Referenced')
     end
 
     def embedded?
       return false unless relation
-      !!(relation_class =~ /Embedded\z/)
+      !!relation_class.end_with?('Embedded')
     end
 
     def sortable?
@@ -123,7 +122,7 @@ module SimpleFormAttachments
 
     def attachments
       return @builder.object.send(attribute_name).to_a unless multiple?
-      @builder.object.send(attribute_name).sort_by{ |a| @builder.object.send(relation_key).index(a.id) }
+      @builder.object.send(attribute_name).sort_by { |a| @builder.object.send(relation_key).index(a.id) }
     end
 
     def accepted_file_types
@@ -141,14 +140,14 @@ module SimpleFormAttachments
       return unless validators
       return unless file_validation_values_for(:ext)
       extensions = file_validation_values_for(:ext)
-      extensions.map{ |e| ".#{e}" }
+      extensions.map { |e| ".#{e}" }
     end
 
     def validated_formats
       return unless validators
       return unless file_validation_values_for(:format)
       formats = file_validation_values_for(:format)
-      formats.map{ |f| ".#{f}" }
+      formats.map { |f| ".#{f}" }
     end
 
     def validated_mime_types
@@ -158,18 +157,18 @@ module SimpleFormAttachments
       mime_types
     end
 
-    def file_validation_values_for property
+    def file_validation_values_for(property)
       return unless file_validation_for(property)
       validation = file_validation_for(property)
-      validation.map{ |v| v.options.values_at(:as, :in) }.flatten.reject(&:blank?).uniq
+      validation.map { |v| v.options.values_at(:as, :in) }.flatten.reject(&:blank?).uniq
     end
 
-    def file_validation_for property
+    def file_validation_for(property)
       return unless validators
-      validators.select{ |v| v.options[:property_name].to_s == property.to_s }
+      validators.select { |v| v.options[:property_name].to_s == property.to_s }
     end
 
-    def validators(field=:file)
+    def validators(field = :file)
       relation_class_name.constantize.validators_on(field)
     end
 
@@ -187,7 +186,7 @@ module SimpleFormAttachments
       input_html_options = {
         multiple: multiple?,
         accept: accepted_file_types,
-        class: 'file',
+        class: 'file'
       }
       template.label_tag('attachment[file]') do
         template.file_field_tag('attachment[file]', input_html_options)
@@ -233,14 +232,16 @@ module SimpleFormAttachments
       table_classes << 'sortable' if sortable?
       template.content_tag :table, class: table_classes do
         @builder.simple_fields_for attribute_name do |attachment_fields|
-          template.render partial: "simple_form_attachments/#{attachment_fields.object.to_partial_path}", format: :html, layout: 'layouts/simple_form_attachments/attachment_layout',
+          template.render(
+            partial: "simple_form_attachments/#{attachment_fields.object.to_partial_path}", format: :html, layout: 'layouts/simple_form_attachments/attachment_layout',
             locals: {
               attachment: attachment_fields.object,
               fields: attachment_fields,
               multiple: multiple?,
               form: @builder,
-              relation_key: relation_key,
+              relation_key: relation_key
             }
+          )
         end
       end
     end
@@ -252,6 +253,5 @@ module SimpleFormAttachments
         template.render('simple_form_attachments/attachments/attachment.hbs.slim')
       end
     end
-
   end
 end
