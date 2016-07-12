@@ -2,13 +2,13 @@ module SimpleFormAttachments
   class UploadController < ActionController::Base
     def show
       @attachment = attachment_class.find(params[:id])
-      render json: { html: attachment_html }, status: :ok
+      render json: { html: attachment_html(@attachment) }, status: :ok
     end
 
     def create
       @attachment = new_attachment
       res = @attachment.save
-      render json: { html: attachment_html }, status: (res ? :ok : :unprocessable_entity)
+      render json: { html: attachment_html(@attachment) }, status: (res ? :ok : :unprocessable_entity)
     end
 
     private # =============================================================
@@ -19,8 +19,8 @@ module SimpleFormAttachments
       end
     end
 
-    def attachment_html
-      render_to_string(partial: 'simple_form_attachments/attachment_upload_template', locals: partial_locals.merge(attachment: @attachment))
+    def attachment_html(attachment)
+      render_to_string(partial: 'simple_form_attachments/attachment_upload_template', locals: partial_locals.merge(attachment: attachment))
     end
 
     def partial_locals
@@ -47,7 +47,13 @@ module SimpleFormAttachments
     end
 
     def attachment_relation_name
+      return unless attachment_relation.present?
       attachment_relation.fetch(:name).to_sym
+    end
+
+    def attachment_relation_key
+      return unless attachment_relation.present?
+      attachment_relation.fetch(:key).to_sym
     end
 
     def child_index
@@ -71,11 +77,8 @@ module SimpleFormAttachments
     end
 
     def parent
-      return unless params[:attachment_relation].present?
-      return parent_class.new unless multiple? && @attachment.errors.empty?
-      parent_class.new do |obj|
-        obj.send(attachment_relation_name) << @attachment
-      end
+      return unless attachment_relation_name.present?
+      parent_class.new
     end
 
     def attachment_parent
