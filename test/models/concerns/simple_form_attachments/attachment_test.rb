@@ -1,9 +1,9 @@
 require 'test_helper'
 require_relative '../../../../app/models/concerns/simple_form_attachments/attachment'
 
-describe Attachment do
-  let(:temporary_attachment) { Attachment.new(temporary: true) }
-  let(:permanent_attachment) { Attachment.new }
+describe AttachmentTest do
+  let(:temporary_attachment) { AttachmentTest.new(temporary: true) }
+  let(:permanent_attachment) { AttachmentTest.new }
 
   before do
     temporary_attachment.save
@@ -13,29 +13,29 @@ describe Attachment do
   describe 'scopes' do
     describe ':temporary' do
       it 'has :temporary scope' do
-        Attachment.must_respond_to :temporary
+        AttachmentTest.must_respond_to :temporary
       end
 
       it 'returns the temporary attachments' do
-        Attachment.temporary.to_a.must_include temporary_attachment
+        AttachmentTest.temporary.to_a.must_include temporary_attachment
       end
 
       it 'does not return the temporary attachments for' do
-        Attachment.temporary.to_a.wont_include permanent_attachment
+        AttachmentTest.temporary.to_a.wont_include permanent_attachment
       end
     end
 
     describe ':permanent' do
       it 'has :permanent scope' do
-        Attachment.must_respond_to :permanent
+        AttachmentTest.must_respond_to :permanent
       end
 
       it 'returns the permanent attachments' do
-        Attachment.permanent.to_a.must_include permanent_attachment
+        AttachmentTest.permanent.to_a.must_include permanent_attachment
       end
 
       it 'does not return the temporary attachments for' do
-        Attachment.permanent.to_a.wont_include temporary_attachment
+        AttachmentTest.permanent.to_a.wont_include temporary_attachment
       end
     end
   end
