@@ -2,18 +2,16 @@ require 'mongoid'
 
 module SimpleFormAttachments
   module HasAttachments
-
     extend ActiveSupport::Concern
 
     module ClassMethods
-
       def attachment_accessor_names
         @@attachment_accessor_names ||= []
       end
 
       # ---------------------------------------------------------------------
 
-      def has_many_attachments accessor_name, opts={}
+      def has_many_attachments(accessor_name, opts = {})
         attachment_accessor_names << accessor_name
 
         options = {
@@ -29,7 +27,7 @@ module SimpleFormAttachments
           # or at least we maintain the query and sort on the db level,
           # but as of not it is not possible to provide custom sort function to mongodb
           #
-          define_method "sorted" do
+          define_method 'sorted' do
             target.sort_by { |attachment| base.send("#{accessor_name.to_s.singularize}_ids").index(attachment.id) }
           end
         end
@@ -37,13 +35,13 @@ module SimpleFormAttachments
         accepts_nested_attributes_for accessor_name
 
         define_method "mark_#{accessor_name}_permanent" do
-          self.send(accessor_name).update_all(temporary: false) if self.send(accessor_name)
+          send(accessor_name).update_all(temporary: false)
         end
       end
 
       # ---------------------------------------------------------------------
 
-      def has_one_attachment accessor_name, opts={}
+      def has_one_attachment(accessor_name, opts = {})
         attachment_accessor_names << accessor_name
 
         options = {
@@ -56,7 +54,7 @@ module SimpleFormAttachments
         accepts_nested_attributes_for accessor_name
 
         define_method "mark_#{accessor_name}_permanent" do
-          self.send(accessor_name).update(temporary: false) if self.send(accessor_name)
+          send(accessor_name).update(temporary: false)
         end
       end
     end
@@ -65,9 +63,8 @@ module SimpleFormAttachments
 
     def mark_all_attachments_permanent
       self.class.attachment_accessor_names.each do |accessor_name|
-        self.send("mark_#{accessor_name}_permanent")
+        send("mark_#{accessor_name}_permanent")
       end
     end
-
   end
 end
