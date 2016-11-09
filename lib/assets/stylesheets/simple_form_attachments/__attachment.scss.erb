@@ -1,0 +1,14 @@
+.<%= SimpleFormAttachments.dom_class(:attachment) %> {
+  display: flex;
+  flex-direction: row;
+  > div {
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+.<%= SimpleFormAttachments.dom_class(:attachment, :has_error) %> {
+  color: red;
+}

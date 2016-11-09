@@ -1,4 +1,5 @@
 class AttachmentImage
+  include Mongoid::Document
 
   include SimpleFormAttachments::Attachment
 

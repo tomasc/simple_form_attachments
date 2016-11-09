@@ -1,0 +1,85 @@
+.<%= SimpleFormAttachments.dom_class %> {
+  input[type="file"] {
+    margin: 0;
+    padding: 0;
+
+    // hide so that the label can be styled
+    width: .1px;
+    height: .1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+
+    label {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+
+  label[for="attachment_file"] {
+    .<%= SimpleFormAttachments.dom_class(:attachment, :button) %> {
+      display: none;
+    }
+  }
+
+  &.dragover {
+    background-color: yellow;
+  }
+}
+
+
+// tr.attachment-placeholder,
+// tr.attachment {
+//   width: 100%;
+// }
+//
+// tr.attachment {
+//   &.has_error {
+//     background-color: pink;
+//     width: 100%;
+//
+//     td.handle {
+//       color: transparent;
+//       text-shadow: none;
+//       border-right: 0;
+//     }
+//   }
+//
+//   td.handle {
+//     display: none;
+//     content: '....';
+//     border-right: 1px solid #FFF;
+//     padding: 0 $padding $padding-large $padding;
+//     overflow: hidden;
+//     cursor: move;
+//     margin-top: -20px;
+//     vertical-align: middle;
+//     font-size: 12px;
+//     line-height: 5px;
+//     font-family: sans-serif;
+//     letter-spacing: 2px;
+//     color: #aaa;
+//     text-shadow: 1px 0 1px #eee;
+//     width: 10px;
+//
+//     &:after {
+//       content: '.. .. .. ..';
+//     }
+//   }
+//
+//   td.thumb {
+//     div.thumb {
+//       background-position: center center;
+//       background-repeat: no-repeat;
+//       overflow: hidden;
+//
+//       img {
+//         width: $image-height;
+//         height: $image-height;
+//         object-fit: cover;
+//         object-position: center;
+//       }
+//     }
+//   }
+// }

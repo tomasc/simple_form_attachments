@@ -1,4 +1,6 @@
 - if attachment.errors.to_a.any?
-  td.errors = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
+  div class=SimpleFormAttachments.dom_class(:attachment, :errors)
+    = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
+
 - else
-  td
+  div

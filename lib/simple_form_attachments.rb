@@ -14,6 +14,12 @@ require "i18n"
 
 # ---------------------------------------------------------------------
 
+module SimpleFormAttachments
+  def self.dom_class(*args)
+    ['simple_form_attachments', args].flatten.join('__')
+  end
+end
+
 module SimpleForm
   class FormBuilder
     map_type :attachment, to: SimpleFormAttachments::AttachmentInput

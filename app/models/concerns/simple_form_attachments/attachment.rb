@@ -12,7 +12,7 @@ module SimpleFormAttachments
     end
 
     def to_simple_form_partial_path
-      ['simple_form_attachments', to_partial_path].join('/')
+      File.join('simple_form_attachments', to_partial_path)
     end
   end
 end
