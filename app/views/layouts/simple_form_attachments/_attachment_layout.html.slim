@@ -10,5 +10,5 @@ div class=[SimpleFormAttachments.dom_class(:attachment), (SimpleFormAttachments.
 
   div class=SimpleFormAttachments.dom_class(:attachment, [:col, :actions])
     - button_type = attachment.errors.to_a.any? ? :close : :delete
-    button class=[SimpleFormAttachments.dom_class(:attachment, :button), SimpleFormAttachments.dom_class(:attachment, "button_#{button_type}")]
+    button class=SimpleFormAttachments.dom_class([:button, button_type])
       = I18n.t(button_type, scope: 'simple_form_attachments.buttons')

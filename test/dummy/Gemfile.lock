@@ -3,6 +3,7 @@ PATH
   specs:
     simple_form_attachments (0.2.5)
       jquery-ui-rails
+      mongoid (> 4.0)
       rails (>= 4.2)
       rails-assets-blueimp-file-upload (>= 9.6.0)
       rails-assets-handlebars

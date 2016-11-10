@@ -190,7 +190,7 @@ module SimpleFormAttachments
       }
       template.label_tag('attachment[file]') do
         template.file_field_tag('attachment[file]', input_html_options) +
-        template.content_tag(:span, I18n.t(:choose_file, scope: 'simple_form_attachments.links', count: (multiple? ? 2 : 1)))
+        template.content_tag(:span, I18n.t(:choose_file, scope: 'simple_form_attachments.links', count: (multiple? ? 2 : 1)), class: SimpleFormAttachments.dom_class(:label, [:choose_file]))
       end
     end
 

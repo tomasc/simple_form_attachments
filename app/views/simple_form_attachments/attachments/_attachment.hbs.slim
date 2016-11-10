@@ -1,6 +1,7 @@
 div class=SimpleFormAttachments.dom_class(:attachment)
   div class=SimpleFormAttachments.dom_class(:attachment, [:col, :handle])
   div class=SimpleFormAttachments.dom_class(:attachment, [:col, :thumb])
+
   div class=SimpleFormAttachments.dom_class(:attachment, [:col, :file_info])
     span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :name) {{ name }}
     span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :mime_type) {{ mime_type }}
@@ -11,5 +12,5 @@ div class=SimpleFormAttachments.dom_class(:attachment)
       div class=SimpleFormAttachments.dom_class(:attachment, [:col, :progress, :bar])
 
   div class=SimpleFormAttachments.dom_class(:attachment, [:col, :actions])
-    button class="#{SimpleFormAttachments.dom_class(:attachment, :button)} #{SimpleFormAttachments.dom_class(:attachment, :button_cancel)}"
+    button class=SimpleFormAttachments.dom_class([:button, :cancel])
       = I18n.t(:cancel, scope: 'simple_form_attachments.buttons')

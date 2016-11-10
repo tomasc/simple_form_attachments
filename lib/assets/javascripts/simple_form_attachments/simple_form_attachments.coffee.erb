@@ -109,13 +109,13 @@
           @set_logs(e, data) if @options.debug
           @enable_form_submit()
 
-      @$element.on 'click', '.<%= SimpleFormAttachments.dom_class(:attachment, :button_delete) %>, .<%= SimpleFormAttachments.dom_class(:attachment, :button_close) %>', (e) =>
+      @$element.on 'click', '.<%= SimpleFormAttachments.dom_class(:button, :delete) %>, .<%= SimpleFormAttachments.dom_class(:button, :close) %>', (e) =>
         e.preventDefault()
         e.stopPropagation()
         $template = $(e.currentTarget).closest('.<%= SimpleFormAttachments.dom_class(:attachment) %>')
         @remove_template($template)
 
-      @$element.on 'click', '.<%= SimpleFormAttachments.dom_class(:attachment, :button_cancel) %>', (e) =>
+      @$element.on 'click', '.<%= SimpleFormAttachments.dom_class(:button, :cancel) %>', (e) =>
         e.preventDefault()
         e.stopPropagation()
         $template = $(e.currentTarget).closest('.<%= SimpleFormAttachments.dom_class(:attachment) %>')
