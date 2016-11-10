@@ -6,7 +6,7 @@
   defaults =
     debug: false
     sortable_options:
-      handle: '.<%= SimpleFormAttachments.dom_class(:attachment, :handle) %>'
+      handle: '.<%= SimpleFormAttachments.dom_class(:attachment, :col, :handle) %>'
       axis: 'y'
       items: '> .<%= SimpleFormAttachments.dom_class(:attachment) %>'
       forcePlaceholderSize: true
@@ -91,13 +91,13 @@
         fail: (e, data) =>
           @set_logs(e, data) if @options.debug
           $result = $(JSON.parse(data.jqXHR.responseText).html).addClass('<%= SimpleFormAttachments.dom_class(:attachment, :has_error) %>')
-          $result.find('.<%= SimpleFormAttachments.dom_class(:attachment, :errors) %>');
+          $result.find('.<%= SimpleFormAttachments.dom_class(:attachment, :col, :errors) %>');
           data.context.replaceWith($result)
 
         progress: (e, data) =>
           @set_logs(e, data) if @options.debug
           progress = parseInt(data.loaded / data.total * 100, 10)
-          data.context.find('<%= SimpleFormAttachments.dom_class(:attachment, :progress, :bar) %>').width(progress+'%')
+          data.context.find('<%= SimpleFormAttachments.dom_class(:attachment, :col, :progress, :bar) %>').width(progress+'%')
 
         done: (e, data) =>
           @set_logs(e, data) if @options.debug

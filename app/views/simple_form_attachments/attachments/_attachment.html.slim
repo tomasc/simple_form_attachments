@@ -1,5 +1,5 @@
 - if attachment.errors.to_a.any?
-  div class=SimpleFormAttachments.dom_class(:attachment, :col_errors)
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :errors])
     = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
 
 - else

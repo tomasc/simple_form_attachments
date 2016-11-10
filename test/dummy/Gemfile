@@ -17,6 +17,7 @@ gem 'dragonfly-mongoid_data_store'
 gem 'simple_form_attachments', path: '../../../simple_form_attachments'
 
 group :development, :test do
+  gem 'rb-readline'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
