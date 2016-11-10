@@ -16,7 +16,7 @@ require "i18n"
 
 module SimpleFormAttachments
   def self.dom_class(*args)
-    ['simple_form_attachments', args].flatten.join('__')
+    ['simple_form_attachments', arg].flatten.join('__')
   end
 end
 
