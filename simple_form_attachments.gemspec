@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   # ---------------------------------------------------------------------
 
   spec.add_dependency 'rails', '>= 4.2'
+  spec.add_dependency 'mongoid', '> 4.0'
   spec.add_dependency 'simple_form', '>= 3.0.2'
 
   spec.add_dependency 'slim'
@@ -39,5 +40,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest-rails'
   spec.add_development_dependency 'dragonfly'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'mongoid', '~> 4.0'
 end

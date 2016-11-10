@@ -30,7 +30,7 @@ def database_id
 end
 
 CONFIG = {
-  sessions: {
+  clients: {
     default: {
       database: database_id,
       hosts: [ "#{HOST}:#{PORT}" ]
