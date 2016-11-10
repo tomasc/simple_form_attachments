@@ -135,23 +135,23 @@ Here an example partial for a model called `AttachmentImage`:
 / app/views/simple_form_attachments/attachment_images/_attachment_image.html.slim
 / (Note the nesting in 'simple_form_attachments' directory.)
 
-div class=SimpleFormAttachments.dom_class(:attachment, :thumb)
-  = image_tag attachment.thumb_url, alt: attachment.file_name
+div class=SimpleFormAttachments.dom_class(:attachment, [:col, :thumb])
+  = image_tag attachment.thumb_url
 
-div class=SimpleFormAttachments.dom_class(:attachment, :file_info)
-  span class=SimpleFormAttachments.dom_class(:attachment, :file_info, :name)
+div class=SimpleFormAttachments.dom_class(:attachment, [:col, :file_info])
+  span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :name)
     = link_to attachment.file_name, attachment.file.url
-  span class=SimpleFormAttachments.dom_class(:attachment, :file_info, :mime_type)
+  span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :mime_type)
     = attachment.file_mime_type
-  span class=SimpleFormAttachments.dom_class(:attachment, :file_info, :size) data-filesize=attachment.file_size
+  span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :size) data-filesize=attachment.file_size
     = attachment.file_size
 
 - if attachment.errors.to_a.any?
-  div class=SimpleFormAttachments.dom_class(:attachment, :errors)
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :errors])
     = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
 
 - else
-  div class=SimpleFormAttachments.dom_class(:attachment, :fields)
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :fields])
     = fields.input :caption
 ```
 
