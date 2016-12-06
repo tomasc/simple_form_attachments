@@ -15,9 +15,9 @@ module SimpleFormAttachments
         attachment_accessor_names << accessor_name
 
         options = {
-          class_name: opts[:class_name] || SimpleFormAttachments::Attachment.model_name,
-          dependent: opts[:dependent],
-          inverse_of: nil
+          class_name: opts.fetch(:class_name, SimpleFormAttachments::Attachment.model_name),
+          dependent: opts.fetch(:dependent, nil),
+          inverse_of: opts.fetch(:inverse_of, nil),
         }
 
         has_and_belongs_to_many accessor_name, options do
@@ -47,8 +47,9 @@ module SimpleFormAttachments
         attachment_accessor_names << accessor_name
 
         options = {
-          class_name: opts[:class_name] || SimpleFormAttachments::Attachment.model_name,
-          dependent: opts[:dependent]
+          class_name: opts.fetch(:class_name, SimpleFormAttachments::Attachment.model_name),
+          dependent: opts.fetch(:dependent, nil),
+          optional: opts.fetch(:optional, true)
         }
 
         belongs_to accessor_name, options

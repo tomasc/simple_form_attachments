@@ -1,5 +1,4 @@
 require 'test_helper'
-require_relative '../../../app/controllers/simple_form_attachments/upload_controller'
 
 describe SimpleFormAttachments::UploadController do
   before do
