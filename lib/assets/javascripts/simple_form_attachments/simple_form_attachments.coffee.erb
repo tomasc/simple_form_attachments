@@ -12,14 +12,14 @@
       forcePlaceholderSize: true
       placeholder: '<%= SimpleFormAttachments.dom_class(:attachment, :placeholder) %>'
       containment: 'parent'
-      start: (event, ui) ->
-        # cellCount = 0
-        # $('td, th', ui.helper).each ->
-        #   colspan = 1
-        #   colspanAttr = $(this).attr('colspan')
-        #   if colspanAttr > 1 then colspan = colspanAttr
-        #   cellCount += colspan
-        # ui.placeholder.html '<td colspan="#{cellCount}">&nbsp;</td>'
+      # start: (event, ui) ->
+      #   # cellCount = 0
+      #   # $('td, th', ui.helper).each ->
+      #   #   colspan = 1
+      #   #   colspanAttr = $(this).attr('colspan')
+      #   #   if colspanAttr > 1 then colspan = colspanAttr
+      #   #   cellCount += colspan
+      #   # ui.placeholder.html '<td colspan="#{cellCount}">&nbsp;</td>'
 
     slide_speed: 'fast'
 
@@ -70,8 +70,7 @@
 
         add: (e, data) =>
           @set_logs(e, data) if @options.debug
-          @get_attachments().remove() unless @is_multiple()
-          # @get_attachment_list().find('.<%= SimpleFormAttachments.dom_class(:attachment) %>').remove() unless @is_multiple()
+          @get_attachment_list().find('.<%= SimpleFormAttachments.dom_class(:attachment) %>').remove() unless @is_multiple()
 
           for file in data.files
             properties = {
