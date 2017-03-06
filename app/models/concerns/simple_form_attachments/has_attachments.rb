@@ -54,7 +54,7 @@ module SimpleFormAttachments
         accepts_nested_attributes_for accessor_name
 
         define_method "mark_#{accessor_name}_permanent" do
-          send(accessor_name).update(temporary: false)
+          send(accessor_name).update(temporary: false) if send(accessor_name)
         end
       end
     end
