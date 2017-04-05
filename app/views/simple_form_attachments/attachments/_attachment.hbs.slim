@@ -3,9 +3,9 @@ div class=SimpleFormAttachments.dom_class(:attachment)
   div class=SimpleFormAttachments.dom_class(:attachment, [:col, :thumb])
 
   div class=SimpleFormAttachments.dom_class(:attachment, [:col, :file_info])
-    span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :name) {{ name }}
-    span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :mime_type) {{ mime_type }}
-    span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :size) data-filesize='{{ size }}' {{ size }}
+    div class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :name) {{ name }}
+    div class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :mime_type) {{ mime_type }}
+    div class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :size) data-filesize='{{ size }}' {{ size }}
 
   div class=SimpleFormAttachments.dom_class(:attachment, [:col, :progress])
     div class=SimpleFormAttachments.dom_class(:attachment, [:col, :progress, :container])

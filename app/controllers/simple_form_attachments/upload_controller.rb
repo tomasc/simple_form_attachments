@@ -1,5 +1,7 @@
 module SimpleFormAttachments
   class UploadController < ActionController::Base
+    protect_from_forgery with: :exception
+
     def show
       @attachment = attachment_class.find(params[:id])
       render json: { html: attachment_html(@attachment) }, status: :ok
@@ -11,7 +13,7 @@ module SimpleFormAttachments
       render json: { html: attachment_html(@attachment) }, status: (res ? :ok : :unprocessable_entity)
     end
 
-    private # =============================================================
+    private
 
     def new_attachment
       attachment_class.new(attachment_params).tap do |att|

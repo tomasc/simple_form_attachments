@@ -12,14 +12,6 @@
       forcePlaceholderSize: true
       placeholder: '<%= SimpleFormAttachments.dom_class(:attachment, :placeholder) %>'
       containment: 'parent'
-      # start: (event, ui) ->
-      #   # cellCount = 0
-      #   # $('td, th', ui.helper).each ->
-      #   #   colspan = 1
-      #   #   colspanAttr = $(this).attr('colspan')
-      #   #   if colspanAttr > 1 then colspan = colspanAttr
-      #   #   cellCount += colspan
-      #   # ui.placeholder.html '<td colspan="#{cellCount}">&nbsp;</td>'
 
     slide_speed: 'fast'
 
@@ -102,7 +94,7 @@
           @set_logs(e, data) if @options.debug
           console.log data.result.html if @options.debug
           $result = $(data.result.html).addClass('<%= SimpleFormAttachments.dom_class(:attachment, :is_uploaded) %>')
-          data.context.replaceWith $result
+          data.context.replaceWith($result)
 
         stop: (e, data) =>
           @set_logs(e, data) if @options.debug
