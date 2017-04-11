@@ -81,14 +81,15 @@
 
         fail: (e, data) =>
           @set_logs(e, data) if @options.debug
-          $result = $(JSON.parse(data.jqXHR.responseText).html).addClass('<%= SimpleFormAttachments.dom_class(:attachment, :has_error) %>')
-          $result.find('.<%= SimpleFormAttachments.dom_class(:attachment, :col, :errors) %>');
-          data.context.replaceWith($result)
+          if !!data.jqXHR.responseText
+            $result = $(JSON.parse(data.jqXHR.responseText).html).addClass('<%= SimpleFormAttachments.dom_class(:attachment, :has_error) %>')
+            $result.find('.<%= SimpleFormAttachments.dom_class(:attachment, :col, :errors) %>');
+            data.context.replaceWith($result)
 
         progress: (e, data) =>
           @set_logs(e, data) if @options.debug
           progress = parseInt(data.loaded / data.total * 100, 10)
-          data.context.find('<%= SimpleFormAttachments.dom_class(:attachment, :col, :progress, :bar) %>').width(progress+'%')
+          data.context.find('.<%= SimpleFormAttachments.dom_class(:attachment, :col, :progress, :bar) %>').width(progress+'%')
 
         done: (e, data) =>
           @set_logs(e, data) if @options.debug
@@ -113,11 +114,11 @@
         data = $template.data('data') || {}
         @enable_form_submit()
 
-        if !data.jqXHR
+        if !!data.jqXHR
+          data.jqXHR.abort()
+        else
           data.errorThrown = 'abort'
           e.data.fileupload._trigger('fail', e, data)
-        else
-          data.jqXHR.abort()
 
         @remove_template($template)
 
