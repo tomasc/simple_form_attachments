@@ -10,6 +10,10 @@ require 'minitest/spec'
 require 'slim'
 require 'database_cleaner'
 require 'mongoid'
+
+require 'rails-controller-testing'
+Rails::Controller::Testing.install
+
 require 'simple_form_attachments'
 
 # ---------------------------------------------------------------------
