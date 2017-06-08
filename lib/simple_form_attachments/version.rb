@@ -1,3 +1,3 @@
 module SimpleFormAttachments
-  VERSION = '0.2.6'.freeze
+  VERSION = '1.0.0'.freeze
 end

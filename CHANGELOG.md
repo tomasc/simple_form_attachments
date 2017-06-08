@@ -1,6 +1,6 @@
-# Change Log
+# CHANGELOG
 
-**0.3.0**
+## 1.0.0
 
-- css classes scoped in the `simple_form_attachments` namespace
-- markup changed from `table` to `div` for more flexibility 
+* css classes scoped in the `simple_form_attachments` namespace
+* markup changed from `table` to `div` for more flexibility
