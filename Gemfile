@@ -5,4 +5,7 @@ source 'https://rails-assets.org'
 gemspec
 
 gem 'rb-readline'
-gem 'rails-controller-testing'
+
+group :development, :test do
+  gem 'rails-controller-testing'
+end
