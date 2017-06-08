@@ -1,14 +1,14 @@
-tr.attachment class=('uploaded' if attachment.present? && attachment.errors.to_a.blank?)
-  td.handle
+div class=[SimpleFormAttachments.dom_class(:attachment), (SimpleFormAttachments.dom_class(:attachment, :is_uploaded) if attachment.present? && attachment.errors.to_a.blank?)]
+
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :handle])
 
   = yield
 
-  td.hidden
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :hidden])
     = fields.hidden_field :id
     = form.hidden_field(relation_key, multiple: multiple, value: attachment.id) if attachment.errors.empty?
 
-  td.cancel.delete.close
-    - if attachment.errors.to_a.any?
-      button.button.close = I18n.t(:close, scope: 'simple_form_attachments.buttons')
-    - else
-      button.button.delete = I18n.t(:delete, scope: 'simple_form_attachments.buttons')
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :actions])
+    - button_type = attachment.errors.to_a.any? ? :close : :delete
+    button class=SimpleFormAttachments.dom_class([:button, button_type])
+      = I18n.t(button_type, scope: 'simple_form_attachments.buttons')

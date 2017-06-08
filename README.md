@@ -127,28 +127,44 @@ Sorting of attachments is turned on by default for `has_many_attachments` relati
 
 ### Views
 
-Uploaded attachments are displayed in a `table`. The gem will look for a partial using the normal rails partial lookup (with a fallback to the default partial), this makes it easy to define a partial for each of your attachment models.
+Uploaded attachments are displayed in a `div`. The gem will look for a partial using the normal rails partial lookup (with a fallback to the default partial), this makes it easy to define a partial for each of your attachment models.
 
-Here is an example partial for a model called `AttachmentImage`:
+Here an example partial for a model called `AttachmentImage`:
+
 ```slim
 / app/views/simple_form_attachments/attachment_images/_attachment_image.html.slim
-/ Note the simple_form_attachments prefix!
+/ (Note the nesting in 'simple_form_attachments' directory.)
 
-td.thumb
-  div.thumb
-    = image_tag attachment.thumb_url, alt: attachment.file_name
+div class=SimpleFormAttachments.dom_class(:attachment, [:col, :thumb])
+  = image_tag attachment.thumb_url
 
-td.file_info
-  = link_to attachment.file_name, attachment.file.url
-  span.mime_type = attachment.file_mime_type
-  span.size = attachment.file_size
+div class=SimpleFormAttachments.dom_class(:attachment, [:col, :file_info])
+  span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :name)
+    = link_to attachment.file_name, attachment.file.url
+  span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :mime_type)
+    = attachment.file_mime_type
+  span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :size) data-filesize=attachment.file_size
+    = attachment.file_size
 
 - if attachment.errors.to_a.any?
-  td.errors = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :errors])
+    = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
 
 - else
-  td.fields
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :fields])
     = fields.input :caption
+```
+
+### Dom class and CSS
+
+The component is isolated in `simple_form_attachments` namespace. This gem comes with its own helper that geners corresponding class names – for example `SimpleFormAttachments.dom_class(:attachment, :file_info)` would generate `simple_form_attachments__file_info`.
+
+Basic styling can be achieved by including `simple_form_attachments.js` css in your app:
+
+```css
+/*
+*= require simple_form_attachments
+*/
 ```
 
 #### Validation errors
@@ -166,12 +182,11 @@ class AttachmentsController < SimpleFormAttachments::UploadController
   # The default controller uses the attachment type passed from the form input
   # to determine which Attachment class to create.
   #
-  # This can be easily overriden, for instance if you want to determine
+  # This can be easily overridden, for instance if you want to infer
   # the class from the `mime type` of the file:
   #
   def attachment_class
     mime_type = params[:attachment][:file].content_type
-    # TODO: very smart code to determine the class from the mime_type
   end
 end
 ```

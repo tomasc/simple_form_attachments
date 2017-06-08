@@ -1,16 +1,13 @@
 development:
-  sessions:
+  clients:
     default:
       database: dummy_development
       hosts:
-        - localhost:27017
+        - <%= ENV['MONGODB_URL'] || "localhost:27017" %>
+
 test:
-  sessions:
+  clients:
     default:
       database: dummy_test
       hosts:
-        - localhost:27017
-      options:
-        read: primary
-        max_retries: 1
-        retry_interval: 0
+        - <%= ENV['MONGODB_URL'] || "localhost:27017" %>

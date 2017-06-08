@@ -3,9 +3,14 @@ en:
     buttons:
       delete: Delete
       cancel: Cancel
-      close: ''
-      disabled: Uploading …
-      file_field: Select files
+      close: 'Close'
+      disabled: 'Uploading …'
+      file_field: 'Select files'
     errors:
       one: 'There was %{count} error:'
       other: 'There were %{count} errors:'
+    links:
+      choose_file:
+        zero: 'Choose file'
+        one: 'Choose file'
+        other: 'Choose files'

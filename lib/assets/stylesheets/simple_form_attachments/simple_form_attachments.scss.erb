@@ -1,0 +1,29 @@
+.<%= SimpleFormAttachments.dom_class %> {
+  input[type="file"] {
+    margin: 0;
+    padding: 0;
+
+    // hide so that the label can be styled
+    width: .1px;
+    height: .1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+
+    label {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+
+  label[for="attachment_file"] {
+    .<%= SimpleFormAttachments.dom_class(:attachment, :button) %> {
+      display: none;
+    }
+  }
+
+  &.dragover {
+    background-color: yellow;
+  }
+}

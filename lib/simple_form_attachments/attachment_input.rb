@@ -37,18 +37,18 @@ module SimpleFormAttachments
     private # =============================================================
 
     def input_html_options
-      super.merge!(
+      super.merge(
         data: {
           attachments_path: options.fetch(:route, route_from_configuration),
           max_number_of_files: options.fetch(:max_number_of_files, nil),
           disabled_submit_text: I18n.t(:disabled, scope: 'simple_form_attachments.buttons'),
-          sortable: sortable?.to_s
-        }
+          sortable: sortable?
+        }.reject{ |k, v| v.nil? }
       )
     end
 
     def input_html_classes
-      super.push('simple_form_attachments')
+      super.push(SimpleFormAttachments.dom_class)
     end
 
     # ---------------------------------------------------------------------
@@ -189,7 +189,8 @@ module SimpleFormAttachments
         class: 'file'
       }
       template.label_tag('attachment[file]') do
-        template.file_field_tag('attachment[file]', input_html_options)
+        template.file_field_tag('attachment[file]', input_html_options) +
+        template.content_tag(:span, I18n.t(:choose_file, scope: 'simple_form_attachments.links', count: (multiple? ? 2 : 1)), class: SimpleFormAttachments.dom_class(:label, [:choose_file]))
       end
     end
 
@@ -228,12 +229,12 @@ module SimpleFormAttachments
     # ---------------------------------------------------------------------
 
     def attachment_list
-      table_classes = %w(attachments list)
-      table_classes << 'sortable' if sortable?
-      template.content_tag :table, class: table_classes do
+      container_classes = [SimpleFormAttachments.dom_class(:attachment_list)]
+      container_classes << SimpleFormAttachments.dom_class(:attachment_list, :is_sortable) if sortable?
+      template.content_tag :div, class: container_classes do
         @builder.simple_fields_for attribute_name do |attachment_fields|
           template.render(
-            partial: "simple_form_attachments/#{attachment_fields.object.to_partial_path}", format: :html, layout: 'layouts/simple_form_attachments/attachment_layout',
+            partial: File.join('simple_form_attachments', attachment_fields.object.to_partial_path), format: :html, layout: File.join('layouts', 'simple_form_attachments', 'attachment_layout'),
             locals: {
               attachment: attachment_fields.object,
               fields: attachment_fields,
@@ -249,8 +250,8 @@ module SimpleFormAttachments
     # ---------------------------------------------------------------------
 
     def handlebars_js_template
-      template.content_tag :script, id: 'attachment_template', type: 'text/html' do
-        template.render('simple_form_attachments/attachments/attachment.hbs.slim')
+      template.content_tag :script, id: 'simple_form_attachments__template', type: 'text/html' do
+        template.render(File.join('simple_form_attachments', 'attachments', 'attachment.hbs.slim'))
       end
     end
   end

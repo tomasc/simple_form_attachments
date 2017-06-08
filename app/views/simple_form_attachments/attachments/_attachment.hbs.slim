@@ -1,17 +1,16 @@
-tr.attachment
-  td.handle
-  td.thumb
-  td.file_info
-    span.name
-      | {{ name }}
-    span.mime_type
-      | {{ mime_type }}
-    span.size
-      | {{ size }}
+div class=SimpleFormAttachments.dom_class(:attachment)
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :handle])
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :thumb])
 
-  td.progress
-    div.progress.container
-      div.progress.bar
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :file_info])
+    div class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :name) {{ name }}
+    div class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :mime_type) {{ mime_type }}
+    div class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :size) data-filesize='{{ size }}' {{ size }}
 
-  td.cancel.delete.close
-    button.button.cancel = I18n.t(:cancel, scope: 'simple_form_attachments.buttons')
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :progress])
+    div class=SimpleFormAttachments.dom_class(:attachment, [:col, :progress, :container])
+      div class=SimpleFormAttachments.dom_class(:attachment, [:col, :progress, :bar])
+
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :actions])
+    button class=SimpleFormAttachments.dom_class([:button, :cancel])
+      = I18n.t(:cancel, scope: 'simple_form_attachments.buttons')

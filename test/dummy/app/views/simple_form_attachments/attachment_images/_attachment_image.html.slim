@@ -1,15 +1,18 @@
-td.thumb
-  div.thumb
-    = image_tag attachment.thumb_url, alt: attachment.file_name
+div class=SimpleFormAttachments.dom_class(:attachment, [:col, :thumb])
+  = image_tag attachment.thumb_url, alt: attachment.file_name
 
-td.file_info
-  = link_to attachment.file_name, attachment.file.url
-  span.mime_type = attachment.file_mime_type
-  span.size = attachment.file_size
+div class=SimpleFormAttachments.dom_class(:attachment, [:col, :file_info])
+  span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :name)
+    = link_to attachment.file_name, attachment.file.url
+  span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :mime_type)
+    = attachment.file_mime_type
+  span class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :size) data-filesize=attachment.file_size
+    = attachment.file_size
 
 - if attachment.errors.to_a.any?
-  td.errors = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :errors])
+    = render 'simple_form_attachments/errors', errors: attachment.errors.to_a
 
 - else
-  td.fields
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :fields])
     = fields.input :caption
