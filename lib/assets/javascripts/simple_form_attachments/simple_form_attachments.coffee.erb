@@ -1,3 +1,5 @@
+#= require numeraljs
+
 # https://github.com/zenorocha/jquery-boilerplate
 (($, window) ->
   pluginName = 'simple_form_attachments'
@@ -66,7 +68,8 @@
 
           for file in data.files
             properties = {
-              size: @get_kb_from_bytes(file.size)
+              size: (file.size)
+              size_human: @get_size_human(file.size)
               mime_type: file.type
               multiple: @is_multiple()
               thumb_url: URL.createObjectURL(file)
@@ -157,7 +160,7 @@
     get_relation_name: -> @$element.data('relation-name')
     get_relation_key: -> @$element.data('relation-key')
 
-    get_kb_from_bytes: (bytes) -> parseInt(parseInt(bytes)/1024)
+    get_size_human: (bytes) -> numeral(bytes).format('0.0 b')
 
     get_attachment_template: (file) =>
       template = Handlebars.compile(@$element.find('script#simple_form_attachments__template').html())
