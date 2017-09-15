@@ -26,12 +26,12 @@ module SimpleFormAttachments
     end
   end
 
-  def self.jquery_ui_sortable_asset
+  def self.jquery_ui_asset(asset)
     jquery_ui_rails_version = Gem.loaded_specs["jquery-ui-rails"].version
     breaking_version = Gem::Version.new('6.0')
     case
-    when jquery_ui_rails_version >= breaking_version then "jquery-ui/widgets/sortable"
-    when jquery_ui_rails_version < breaking_version then "jquery-ui/sortable"
+    when jquery_ui_rails_version >= breaking_version then "jquery-ui/widgets/#{asset}"
+    when jquery_ui_rails_version < breaking_version then "jquery-ui/#{asset}"
     end
   end
 end
