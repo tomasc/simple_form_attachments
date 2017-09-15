@@ -203,7 +203,6 @@ DEPENDENCIES
   dragonfly
   dragonfly-mongoid_data_store
   jquery-rails
-  jquery-ui-rails (~> 6.0)
   mongoid
   rails (= 4.2.0)
   rb-readline
