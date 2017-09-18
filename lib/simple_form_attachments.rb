@@ -27,11 +27,11 @@ module SimpleFormAttachments
   end
 
   def self.jquery_ui_asset(asset)
-    jquery_ui_rails_version = Gem.loaded_specs["jquery-ui-rails"].version
-    breaking_version = Gem::Version.new('6.0')
+    jquery_ui_version = Gem::Version.new(Jquery::Ui::Rails::JQUERY_UI_VERSION)
     case
-    when jquery_ui_rails_version >= breaking_version then "jquery-ui/widgets/#{asset}"
-    when jquery_ui_rails_version < breaking_version then "jquery-ui/#{asset}"
+    when Gem::Dependency.new('', '< 1.12').match?('', jquery_ui_version) then "jquery-ui/#{asset}"
+    when Gem::Dependency.new('', '>= 1.12').match?('', jquery_ui_version) then "jquery-ui/widgets/#{asset}"
+    else raise "This version of jQuery UI is not supported"
     end
   end
 end
