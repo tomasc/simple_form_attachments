@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    simple_form_attachments (1.0.1)
+    simple_form_attachments (1.1.0)
       jquery-ui-rails (>= 5.0, < 7.0)
       mongoid (> 4.0)
       rails (>= 4.2)
