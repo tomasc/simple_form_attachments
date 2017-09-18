@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'slim'
 
-  spec.add_dependency 'jquery-ui-rails'
+  spec.add_dependency 'jquery-ui-rails', ">= 5.0", "< 7.0"
   spec.add_dependency 'rails-assets-blueimp-file-upload', '>= 9.6.0'
   spec.add_dependency 'rails-assets-handlebars'
   spec.add_dependency 'rails-assets-numeraljs'

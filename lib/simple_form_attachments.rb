@@ -7,6 +7,7 @@ require "simple_form_attachments/engine"
 require "simple_form_attachments/version"
 
 require "jquery-ui-rails"
+require "rails-assets-numeraljs"
 require "rails-assets-blueimp-file-upload"
 require "rails-assets-handlebars"
 
@@ -22,6 +23,15 @@ module SimpleFormAttachments
     alts.flatten.map do |item|
       prefix += [item]
       prefix.compact.join('__')
+    end
+  end
+
+  def self.jquery_ui_asset(asset)
+    jquery_ui_version = Gem::Version.new(Jquery::Ui::Rails::JQUERY_UI_VERSION)
+    case
+    when Gem::Dependency.new('', '< 1.12').match?('', jquery_ui_version) then "jquery-ui/#{asset}"
+    when Gem::Dependency.new('', '>= 1.12').match?('', jquery_ui_version) then "jquery-ui/widgets/#{asset}"
+    else raise "This version of jQuery UI is not supported"
     end
   end
 end

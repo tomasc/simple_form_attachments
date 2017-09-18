@@ -157,9 +157,9 @@ div class=SimpleFormAttachments.dom_class(:attachment, [:col, :file_info])
 
 ### Dom class and CSS
 
-The component is isolated in `simple_form_attachments` namespace. This gem comes with its own helper that geners corresponding class names – for example `SimpleFormAttachments.dom_class(:attachment, :file_info)` would generate `simple_form_attachments__file_info`.
+The component is isolated in the `simple_form_attachments` namespace. This gem comes with its own helper that generates corresponding class names – for example `SimpleFormAttachments.dom_class(:attachment, :file_info)` would generate `simple_form_attachments__file_info`.
 
-Basic styling can be achieved by including `simple_form_attachments.js` css in your app:
+Basic styling can be achieved by including `simple_form_attachments` css in your app:
 
 ```css
 /*
@@ -200,6 +200,8 @@ resources :attachments, only: [:create]
 Specify the route either app wide in an initializer:
 
 ```ruby
+# config/initializers/simple_form_attachments.rb
+
 require 'simple_form_attachments'
 # Configuration
 
@@ -217,7 +219,7 @@ Or per input:
 
 ## Testing
 
-Besides a `MiniTest` test suite, the gem has a dummy app located at `test/dummy`. Simply `cd` into the directory and run `bin rails s` to test the uploader.
+Besides a `MiniTest` test suite, the gem has a dummy app located at `test/dummy`. Simply `cd` into the directory and run `bin/rails s` to test the uploader.
 
 ## Contributing
 
