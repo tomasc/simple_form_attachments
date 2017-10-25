@@ -183,12 +183,15 @@ module SimpleFormAttachments
     end
 
     def attachment_file_field
+      input_id = "#{parent_name}_#{relation_key}_file__#{SecureRandom.hex(8)}"
+
       input_html_options = {
         multiple: multiple?,
         accept: accepted_file_types,
-        class: 'file'
+        class: 'file',
+        id: input_id
       }
-      template.label_tag('attachment[file]') do
+      template.label_tag(input_id) do
         template.file_field_tag('attachment[file]', input_html_options) +
         template.content_tag(:span, I18n.t(:choose_file, scope: 'simple_form_attachments.links', count: (multiple? ? 2 : 1)), class: SimpleFormAttachments.dom_class(:label, [:choose_file]))
       end
