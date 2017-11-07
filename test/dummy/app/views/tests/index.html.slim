@@ -1,0 +1,15 @@
+p#notice = notice
+
+h1 Tests
+
+table
+  tbody
+    - @tests.each do |test|
+      tr
+        td = link_to 'Show', test
+        td = link_to 'Edit', edit_test_path(test)
+        td = link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }
+
+br
+
+= link_to 'New Test', new_test_path

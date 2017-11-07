@@ -30,6 +30,8 @@
       @attachments_counter = 0
 
     init: ->
+      @set_unique_ids()
+
       @get_file_input().on 'fileuploadalways', (e) => @init_sortable() if @is_sortable()
       @init_sortable() if @is_sortable()
       @init_fileupload()
@@ -192,6 +194,23 @@
 
     is_multiple: -> @get_file_input().attr('multiple') != undefined
     is_sortable: -> @get_attachment_list().hasClass('<%= SimpleFormAttachments.dom_class(:attachment_list, :is_sortable) %>')
+
+    # ---------------------------------------------------------------------
+
+    set_unique_ids: ->
+      $input = @get_file_input()
+      default_id = $input.attr('id')
+      $label = @$element.find("[for='#{default_id}']")
+      $input.data('default-id', default_id)
+      $label.data('default-for', default_id)
+      new_id = "#{default_id}__#{@guid()}"
+      $input.attr('id', new_id)
+      $label.attr('for', new_id)
+
+    # ---------------------------------------------------------------------
+
+    guid: -> @s4() + @s4() + '-' + @s4() + '-' + @s4() + '-' + @s4() + '-' + @s4() + @s4() + @s4()
+    s4: -> Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)
 
   # ---------------------------------------------------------------------
 

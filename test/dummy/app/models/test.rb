@@ -5,8 +5,6 @@ class Test
   has_many_attachments :attachment_images, class_name: 'AttachmentImage', order: -> { attachment_images.id }
   validates :attachment_images, length: { maximum: 2 }
 
-  # p attachment_images
-
-  # sort_by { |u| ids.index(u.id) }
-
+  has_many_attachments :other_attachment_images, class_name: 'AttachmentImage', order: -> { other_attachment_images.id }
+  validates :other_attachment_images, length: { maximum: 2 }
 end
