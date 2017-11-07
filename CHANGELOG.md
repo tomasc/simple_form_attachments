@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.0
+
+* CHANGE: ensures file input ids (and label) references are unique. [Issue #20](https://github.com/tomasc/simple_form_attachments/issues/20), thanks @asgerb
+
 ## 1.1.1
 
 * FIX: use `to_simple_form_partial_path` in the input builder, [PR #19](https://github.com/tomasc/simple_form_attachments/pull/19), thanks @asgerb
