@@ -1,5 +1,6 @@
 import numeral from 'numeraljs'
 import Handlebars from 'handlebars/dist/handlebars.min.js'
+import Sortable from 'sortablejs'
 
 # /* The jQuery UI widget factory, can be omitted if jQuery UI is already included */
 require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/vendor/jquery.ui.widget.js');
@@ -19,12 +20,14 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
   defaults =
     debug: false
     sortable_options:
-      handle: '.simple_form_attachments__attachment__col__handle'
-      axis: 'y'
-      items: '> .simple_form_attachments__attachment'
+      animation: 150
+      draggable: '.simple_form_attachments__attachment'
       forcePlaceholderSize: true
-      placeholder: 'simple_form_attachments__attachment__placeholder'
-      containment: 'parent'
+      ghostClass: 'simple_form_attachments__attachment__ghost'
+      handle: '.simple_form_attachments__attachment__col__handle'
+      # axis: 'y'
+      # containment: 'parent'
+      # placeholder: 'simple_form_attachments__attachment__placeholder'
 
     slide_speed: 'fast'
 
@@ -48,7 +51,7 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
       @init_fileupload()
 
     init_sortable: () ->
-      @get_attachment_list().sortable(@options.sortable_options)#.disableSelection()
+      @sortable = new Sortable(@get_attachment_list()[0], @options.sortable_options)
 
     init_fileupload: () ->
       console.log "init jQuery.fileupload" if @options.debug
@@ -230,5 +233,3 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
       if !$.data(this, "plugin_#{pluginName}")
         $.data(@, "plugin_#{pluginName}", new Plugin(@, options))
 )(jQuery, window)
-
-$ -> $('div.simple_form_attachments').simple_form_attachments()
