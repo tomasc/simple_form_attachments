@@ -1,17 +1,12 @@
-require "mongoid"
-require "simple_form"
+require 'mongoid'
+require 'simple_form'
 
-require "simple_form_attachments/attachment_input"
-require "simple_form_attachments/configuration"
-require "simple_form_attachments/engine"
-require "simple_form_attachments/version"
+require 'simple_form_attachments/attachment_input'
+require 'simple_form_attachments/configuration'
+require 'simple_form_attachments/engine'
+require 'simple_form_attachments/version'
 
-require "jquery-ui-rails"
-require "rails-assets-numeraljs"
-require "rails-assets-blueimp-file-upload"
-require "rails-assets-handlebars"
-
-require "i18n"
+require 'i18n'
 
 # ---------------------------------------------------------------------
 
