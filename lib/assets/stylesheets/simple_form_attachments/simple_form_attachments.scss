@@ -1,4 +1,4 @@
-.<%= SimpleFormAttachments.dom_class %> {
+.simple_form_attachments {
   input[type="file"] {
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@
   }
 
   label[for="attachment_file"] {
-    .<%= SimpleFormAttachments.dom_class(:attachment, :button) %> {
+    .simple_form_attachments__attachment__button {
       display: none;
     }
   }

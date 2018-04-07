@@ -1572,9 +1572,56 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-__webpack_require__(3)
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__simple_form_attachments__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__simple_form_attachments___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__simple_form_attachments__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_assets_stylesheets_simple_form_attachments_attachment_scss__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_assets_stylesheets_simple_form_attachments_attachment_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__lib_assets_stylesheets_simple_form_attachments_attachment_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_assets_stylesheets_simple_form_attachments_attachment_col_scss__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_assets_stylesheets_simple_form_attachments_attachment_col_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__lib_assets_stylesheets_simple_form_attachments_attachment_col_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_assets_stylesheets_simple_form_attachments_attachment_col_actions_scss__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_assets_stylesheets_simple_form_attachments_attachment_col_actions_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__lib_assets_stylesheets_simple_form_attachments_attachment_col_actions_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_assets_stylesheets_simple_form_attachments_attachment_col_errors_scss__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_assets_stylesheets_simple_form_attachments_attachment_col_errors_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__lib_assets_stylesheets_simple_form_attachments_attachment_col_errors_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_assets_stylesheets_simple_form_attachments_attachment_col_fields_scss__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_assets_stylesheets_simple_form_attachments_attachment_col_fields_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__lib_assets_stylesheets_simple_form_attachments_attachment_col_fields_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_assets_stylesheets_simple_form_attachments_attachment_col_file_info_scss__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_assets_stylesheets_simple_form_attachments_attachment_col_file_info_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__lib_assets_stylesheets_simple_form_attachments_attachment_col_file_info_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_assets_stylesheets_simple_form_attachments_attachment_col_handle_scss__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_assets_stylesheets_simple_form_attachments_attachment_col_handle_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__lib_assets_stylesheets_simple_form_attachments_attachment_col_handle_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_assets_stylesheets_simple_form_attachments_attachment_col_hidden_scss__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_assets_stylesheets_simple_form_attachments_attachment_col_hidden_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__lib_assets_stylesheets_simple_form_attachments_attachment_col_hidden_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_assets_stylesheets_simple_form_attachments_attachment_col_progress_scss__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_assets_stylesheets_simple_form_attachments_attachment_col_progress_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__lib_assets_stylesheets_simple_form_attachments_attachment_col_progress_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__lib_assets_stylesheets_simple_form_attachments_attachment_col_thumb_scss__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__lib_assets_stylesheets_simple_form_attachments_attachment_col_thumb_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__lib_assets_stylesheets_simple_form_attachments_attachment_col_thumb_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__lib_assets_stylesheets_simple_form_attachments_attachment_list_scss__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__lib_assets_stylesheets_simple_form_attachments_attachment_list_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__lib_assets_stylesheets_simple_form_attachments_attachment_list_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__lib_assets_stylesheets_simple_form_attachments_button_scss__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__lib_assets_stylesheets_simple_form_attachments_button_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__lib_assets_stylesheets_simple_form_attachments_button_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__lib_assets_stylesheets_simple_form_attachments_label_scss__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__lib_assets_stylesheets_simple_form_attachments_label_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__lib_assets_stylesheets_simple_form_attachments_label_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__lib_assets_stylesheets_simple_form_attachments_simple_form_attachments_scss__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__lib_assets_stylesheets_simple_form_attachments_simple_form_attachments_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__lib_assets_stylesheets_simple_form_attachments_simple_form_attachments_scss__);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /***/ }),
@@ -8439,6 +8486,90 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 }));
 
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

@@ -1,1 +1,16 @@
-require('./simple_form_attachments')
+import './simple_form_attachments'
+
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col__actions.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col__errors.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col__fields.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col__file_info.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col__handle.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col__hidden.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col__progress.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col__thumb.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__attachment_list.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__button.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/__label.scss'
+import '../../lib/assets/stylesheets/simple_form_attachments/simple_form_attachments.scss'

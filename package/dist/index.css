@@ -1,0 +1,75 @@
+.simple_form_attachments__attachment {
+  display: flex;
+  flex-direction: row; }
+
+.simple_form_attachments__attachment__has_error {
+  color: red; }
+.simple_form_attachments_attachment_col_actions {
+  flex: 0 0 auto; }
+.simple_form_attachments_attachment_col_errors {
+  flex: 1 1 auto;
+  width: 100%; }
+  .simple_form_attachments_attachment_col_errors > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+.simple_form_attachments__attachment__col__fields {
+  flex: 1 1 auto;
+  width: 100%; }
+.simple_form_attachments__attachment__col__file_info {
+  flex: 1 1 auto;
+  width: 100%; }
+.simple_form_attachments__attachment__col__handle {
+  background: gray;
+  cursor: move;
+  flex: 0 0 auto;
+  width: 1em; }
+.simple_form_attachments__attachment__col__hidden {
+  display: none; }
+.simple_form_attachments__attachment__col__progress {
+  flex: 1 1 auto;
+  width: 100%; }
+
+.simple_form_attachments__attachment__col__progress__container {
+  width: 100%; }
+
+.simple_form_attachments__attachment__col__progress__bar {
+  height: 1em;
+  background-color: blue;
+  width: 0; }
+.simple_form_attachments__attachment__col__thumb {
+  flex: 0 0 auto;
+  width: 20%; }
+  .simple_form_attachments__attachment__col__thumb img {
+    display: block;
+    object-fit: contain; }
+.simple_form_attachments__attachment_list .simple_form_attachments__attachment__col__handle {
+  display: none; }
+
+.simple_form_attachments__attachment_list__is_sortable .simple_form_attachments__attachment__col__handle {
+  display: block; }
+.simple_form_attachments__button {
+  white-space: nowrap; }
+
+.simple_form_attachments__button__cancel,
+.simple_form_attachments__button__close,
+.simple_form_attachments__button__delete {
+  color: red; }
+.simple_form_attachments input[type="file"] {
+  margin: 0;
+  padding: 0;
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+  .simple_form_attachments input[type="file"] label {
+    display: inline-block;
+    vertical-align: bottom; }
+
+.simple_form_attachments label[for="attachment_file"] .simple_form_attachments__attachment__button {
+  display: none; }
+
+.simple_form_attachments.dragover {
+  background-color: yellow; }
