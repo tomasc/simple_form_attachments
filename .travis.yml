@@ -13,3 +13,12 @@ notifications:
       - asger@8kilo.com
     on_failure: change
     on_success: never
+
+matrix:
+  include:
+    - rvm: 2.3.3
+      env: MONGOID_VERSION=5
+    - rvm: 2.3.3
+      env: MONGOID_VERSION=6
+    - rvm: 2.5.0
+      env: MONGOID_VERSION=7
