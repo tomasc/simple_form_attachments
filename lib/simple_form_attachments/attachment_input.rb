@@ -101,7 +101,11 @@ module SimpleFormAttachments
 
     def multiple?
       return false unless relation
-      !!relation.macro.to_s.end_with?('many')
+      if Mongoid::Compatibility::Version.mongoid7_or_newer?
+        !!relation.class.to_s.end_with?('many')
+      else
+        !!relation.macro.to_s.end_with?('many')
+      end
     end
 
     def referenced?

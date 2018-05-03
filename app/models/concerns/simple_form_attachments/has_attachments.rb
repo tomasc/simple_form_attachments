@@ -29,7 +29,7 @@ module SimpleFormAttachments
           # but as of not it is not possible to provide custom sort function to mongodb
           #
           define_method :sorted do
-            if Mongoid::Compatibility::Version.mongoid7?
+            if Mongoid::Compatibility::Version.mongoid7_or_newer?
               @_target.sort_by do |attachment|
                 @_base.send("#{accessor_name.to_s.singularize}_ids").index(attachment.id)
               end
