@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   # ---------------------------------------------------------------------
 
   spec.add_dependency 'rails', '>= 4.2'
-  spec.add_dependency 'mongoid', '>= 6', '<= 7'
+  spec.add_dependency 'mongoid', '>= 6', '< 8'
   spec.add_dependency 'simple_form', '>= 3.0.2'
   spec.add_dependency 'mongoid-compatibility'
 
