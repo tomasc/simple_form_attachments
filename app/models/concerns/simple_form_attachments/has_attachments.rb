@@ -30,7 +30,7 @@ module SimpleFormAttachments
           #
           define_method :sorted do
             if Mongoid::Compatibility::Version.mongoid7?
-              sort_by do |attachment|
+              @_target.sort_by do |attachment|
                 @_base.send("#{accessor_name.to_s.singularize}_ids").index(attachment.id)
               end
             else
