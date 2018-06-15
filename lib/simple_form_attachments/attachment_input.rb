@@ -16,8 +16,6 @@ module SimpleFormAttachments
       end
     end
 
-    # =====================================================================
-
     def input(wrapper_options)
       template.content_tag :div, merge_wrapper_options(input_html_options, wrapper_options) do
         template.concat attachment_blank_field
@@ -34,7 +32,7 @@ module SimpleFormAttachments
       end
     end
 
-    private # =============================================================
+    private
 
     def input_html_options
       super.merge(
@@ -102,7 +100,7 @@ module SimpleFormAttachments
     def multiple?
       return false unless relation
       if Mongoid::Compatibility::Version.mongoid7_or_newer?
-        !!relation.class.to_s.end_with?('many')
+        !!relation.class.to_s.end_with?('Many')
       else
         !!relation.macro.to_s.end_with?('many')
       end
