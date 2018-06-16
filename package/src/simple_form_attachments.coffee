@@ -288,7 +288,7 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
       @each ->
         @.pluginInstances or= {}
         instance = @.pluginInstances[dataKey]
-        if (instance instanceof klass) and (typeof instance[options] is 'function')
+        if (instance instanceof Plugin) and (typeof instance[options] is 'function')
           returns = instance[options].apply(instance, Array::slice.call(args, 1))
           @.pluginInstances[dataKey] = null if options is 'destroy'
           if (returns isnt `undefined`) then returns else @

@@ -2134,7 +2134,7 @@ __webpack_require__(14);
         var instance;
         this.pluginInstances || (this.pluginInstances = {});
         instance = this.pluginInstances[dataKey];
-        if (instance instanceof klass && typeof instance[options] === 'function') {
+        if (instance instanceof Plugin && typeof instance[options] === 'function') {
           returns = instance[options].apply(instance, Array.prototype.slice.call(args, 1));
           if (options === 'destroy') {
             this.pluginInstances[dataKey] = null;
