@@ -9,3 +9,5 @@ when /7/ then gem 'mongoid', '~> 7.0'
 when /6/ then gem 'mongoid', '~> 6.0'
 else gem 'mongoid', version
 end
+
+gem 'webpacker', '~> 3.5'

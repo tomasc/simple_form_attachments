@@ -1,0 +1,14 @@
+div class=SimpleFormAttachments.dom_class(:attachment)
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :handle__disabled])
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :thumb])
+
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :file_info])
+    div class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :name) {{ name }}
+    div class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :mime_type) {{ mime_type }}
+    div class=SimpleFormAttachments.dom_class(:attachment, :col, :file_info, :size) data-filesize='{{ size }}' {{ size_human }}
+
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :errors]) {{ error }}
+
+  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :actions])
+    button class=SimpleFormAttachments.dom_class([:button, :dismiss])
+      = I18n.t(:dismiss, scope: 'simple_form_attachments.buttons')

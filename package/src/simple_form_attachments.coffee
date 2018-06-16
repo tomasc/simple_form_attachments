@@ -46,7 +46,7 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
     init: ->
       @set_unique_ids()
 
-      @get_file_input().on 'fileuploadalways', (e) => @init_sortable() if @is_sortable()
+      @get_file_input().on 'fileuploadalways.simple_form_attachments', (e) => @init_sortable() if @is_sortable()
       @init_sortable() if @is_sortable()
       @init_fileupload()
 
@@ -71,32 +71,57 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
         }
         namespace: 'simple_form_attachments'
         url: @get_attachments_path()
-        # getNumberOfFiles: -> 2
-        # maxNumberOfFiles: 2
-
-        start: (e, data) =>
-          @set_logs(e, data) if @options.debug
-          @disable_form_submit()
+        acceptFileTypes: @get_accept_file_types()
+        maxFileSize: @get_max_file_size()
+        minFileSize: @get_min_file_size()
+        maxNumberOfFiles: @get_max_number_of_files()
 
         add: (e, data) =>
           @set_logs(e, data) if @options.debug
           @get_attachment_list().find('.simple_form_attachments__attachment').remove() unless @is_multiple()
 
-          for file in data.files
-            properties = {
-              size: (file.size)
-              size_human: @get_size_human(file.size)
-              mime_type: file.type
-              multiple: @is_multiple()
-              thumb_url: URL.createObjectURL(file)
-            }
-            result = $.extend({}, file, properties)
-            $template = @get_attachment_template(result).addClass('simple_form_attachments__attachment__is_uploading')
-            data.context = $template
-            $template.data('data', data)
-            @get_attachment_list().append($template)
+          data.process =>
+            @get_file_input().fileupload('process', data)
 
-          data.submit()
+          return false if e.isDefaultPrevented()
+
+          if data.autoUpload or data.autoUpload != false and @get_file_input().fileupload('option', 'autoUpload')
+            data.process().done =>
+              for file in data.files
+                properties = {
+                  error: file.error
+                  mime_type: file.type
+                  multiple: @is_multiple()
+                  size: file.size
+                  size_human: @get_size_human(file.size)
+                  thumb_url: URL.createObjectURL(file)
+                }
+                result = $.extend({}, file, properties)
+                $template = @get_attachment_template(result).addClass('simple_form_attachments__attachment__is_uploading')
+                data.context = $template
+                $template.data('data', data)
+                @get_attachment_list().append($template)
+              data.submit()
+
+            data.process().fail =>
+              for file in data.files
+                properties = {
+                  error: file.error
+                  mime_type: file.type
+                  multiple: @is_multiple()
+                  size: file.size
+                  size_human: @get_size_human(file.size)
+                  thumb_url: URL.createObjectURL(file)
+                }
+                result = $.extend({}, file, properties)
+                $template = @get_upload_error_template(result)
+                data.context = $template
+                $template.data('data', data)
+                @get_attachment_list().append($template)
+
+        start: (e, data) =>
+          @set_logs(e, data) if @options.debug
+          @disable_form_submit()
 
         fail: (e, data) =>
           @set_logs(e, data) if @options.debug
@@ -120,13 +145,13 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
           @set_logs(e, data) if @options.debug
           @enable_form_submit()
 
-      @$element.on 'click', '.simple_form_attachments__button__delete, .simple_form_attachments__button__close', (e) =>
+      @$element.on 'click.simple_form_attachments', '.simple_form_attachments__button__delete, .simple_form_attachments__button__close, .simple_form_attachments__button__dismiss', (e) =>
         e.preventDefault()
         e.stopPropagation()
         $template = $(e.currentTarget).closest('.simple_form_attachments__attachment')
         @remove_template($template)
 
-      @$element.on 'click', '.simple_form_attachments__button__cancel', (e) =>
+      @$element.on 'click.simple_form_attachments', '.simple_form_attachments__button__cancel', (e) =>
         e.preventDefault()
         e.stopPropagation()
         $template = $(e.currentTarget).closest('.simple_form_attachments__attachment')
@@ -141,19 +166,35 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
 
         @remove_template($template)
 
-      @$element.on 'dragover', (e) =>
+      @$element.on 'dragover.simple_form_attachments', (e) =>
         e.preventDefault()
         @$element.addClass('dragover')
 
-      @$element.on 'dragleave', (e) =>
+      @$element.on 'dragleave.simple_form_attachments', (e) =>
         e.preventDefault()
         @$element.removeClass('dragover')
 
-      @$element.on 'drop', (e) =>
+      @$element.on 'drop.simple_form_attachments', (e) =>
         e.preventDefault()
         @$element.removeClass('dragover')
 
     # ---------------------------------------------------------------------
+
+    destroy: ->
+      @get_file_input().off '.simple_form_attachments'
+      @$element.off '.simple_form_attachments'
+
+    # ---------------------------------------------------------------------
+
+    get_accept_file_types: ->
+      return unless file_types = @$element.data('accept-file-types')
+      for file_type in file_types
+        file_type = file_type.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      new RegExp(file_types.join("|"), 'i')
+
+    get_max_file_size: -> @$element.data('max-file-size')
+    get_min_file_size: -> @$element.data('min-file-size')
+    get_max_number_of_files: -> @$element.data('max-number-of-files')
 
     get_attachment_list: -> @$element.find('.simple_form_attachments__attachment_list')
     get_attachments_path: -> @$element.data('attachments-path')
@@ -161,7 +202,6 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
     get_file_input: -> @$element.find('input.file')
     get_form: -> @$element.parents('form').first()
     get_form_submit: -> @get_form().find('input[type="submit"]').first()
-    get_max_number_of_files: -> @$element.data('max-number-of-files')
     get_number_of_files: -> @get_attachment_list().children('.simple_form_attachments__attachment').not('.simple_form_attachments__attachment__has_error').length
 
     get_attachment_type_input: -> @$element.find('input[name="attachment_type"]')
@@ -179,7 +219,11 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
     get_size_human: (bytes) -> numeral(bytes).format('0.0 b')
 
     get_attachment_template: (file) =>
-      template = Handlebars.compile(@$element.find('script#simple_form_attachments__template').html())
+      template = Handlebars.compile(@$element.find('script#simple_form_attachments__attachment_template').html())
+      $(template(file))
+
+    get_upload_error_template: (file) =>
+      template = Handlebars.compile(@$element.find('script#simple_form_attachments__upload_error_template').html())
       $(template(file))
 
     # ---------------------------------------------------------------------
@@ -229,7 +273,24 @@ require('imports-loader?define=>false&exports=>false!blueimp-file-upload/js/jque
   # ---------------------------------------------------------------------
 
   $.fn[pluginName] = (options) ->
-    @each ->
-      if !$.data(this, "plugin_#{pluginName}")
-        $.data(@, "plugin_#{pluginName}", new Plugin(@, options))
+    args = arguments
+    dataKey = "plugin_#{name}"
+
+    if options is `undefined` or typeof options is "object"
+      @each ->
+        @.pluginInstances or= {}
+        unless @.pluginInstances[dataKey]
+          instance = new Plugin(@, options)
+          @.pluginInstances[dataKey] = instance
+
+    else if (typeof options is 'string') and (options[0] isnt '_') and (options isnt 'init')
+      returns = undefined
+      @each ->
+        @.pluginInstances or= {}
+        instance = @.pluginInstances[dataKey]
+        if (instance instanceof klass) and (typeof instance[options] is 'function')
+          returns = instance[options].apply(instance, Array::slice.call(args, 1))
+          @.pluginInstances[dataKey] = null if options is 'destroy'
+          if (returns isnt `undefined`) then returns else @
+
 )(jQuery, window)

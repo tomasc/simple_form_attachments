@@ -26,15 +26,9 @@ class AttachmentImage
 
   # ---------------------------------------------------------------------
 
-  # validates :file, presence: true
-
-  validates_size_of :file, maximum: 500.kilobytes, message: 'is too big, should be maximum 500kb'
-
-  # ---------------------------------------------------------------------
-
-  # validates_property :ext, of: :file, in: ['jpg']
-  # validates_property :format, of: :file, in: ['jpeg', 'gif']
-  # validates_property :mime_type, of: :file, as: 'image/jpeg'
+  validates :file, presence: true
+  validates_size_of :file, minimum: 100.kilobytes, maximum: 500.kilobytes, message: 'is too big, should be maximum 500kb'
+  validates_property :ext, of: :file, in: %w[jpg jpeg png]
 
   # =====================================================================
 

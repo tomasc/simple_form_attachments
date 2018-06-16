@@ -28,7 +28,8 @@ module SimpleFormAttachments
         template.concat attachment_relation_name_field
         template.concat attachment_relation_class_field
         template.concat attachment_list
-        template.concat handlebars_js_template
+        template.concat handlebars_js_attachment_template
+        template.concat handlebars_js_upload_error_template
       end
     end
 
@@ -38,7 +39,10 @@ module SimpleFormAttachments
       super.merge(
         data: {
           attachments_path: options.fetch(:route, route_from_configuration),
-          max_number_of_files: options.fetch(:max_number_of_files, nil),
+          accept_file_types: accepted_file_types,
+          max_file_size: max_file_size,
+          min_file_size: min_file_size,
+          max_number_of_files: max_number_of_files,
           disabled_submit_text: I18n.t(:disabled, scope: 'simple_form_attachments.buttons'),
           sortable: sortable?
         }.reject{ |k, v| v.nil? }
@@ -128,35 +132,62 @@ module SimpleFormAttachments
     end
 
     def accepted_file_types
-      return unless validators
-      [
-        validated_extensions,
-        validated_formats,
-        validated_mime_types
-      ].reject(&:blank?).flatten.join(',')
+      options.fetch(:accept_file_types) {
+        [ validated_extensions,
+          validated_formats,
+          validated_mime_types
+        ].reject(&:blank?).flatten.uniq
+      }.map do |file_type|
+        file_type.to_s.start_with?('.') ? file_type : ".#{file_type}"
+      end
+    end
+
+    def max_file_size
+      options.fetch(:max_file_size) do
+        return unless validators
+        return unless validator = validators.detect do |validator|
+          validator.is_a?(ActiveModel::Validations::LengthValidator) &&
+            validator.options.has_key?(:maximum)
+        end
+        validator.options.fetch(:maximum, nil)
+      end
+    end
+
+    def min_file_size
+      options.fetch(:min_file_size) do
+        return unless validators
+        return unless validator = validators.detect do |validator|
+          validator.is_a?(ActiveModel::Validations::LengthValidator) &&
+            validator.options.has_key?(:minimum)
+        end
+        validator.options.fetch(:minimum, nil)
+      end
+    end
+
+    def max_number_of_files
+      options.fetch(:max_number_of_files, nil)
     end
 
     # ---------------------------------------------------------------------
 
     def validated_extensions
-      return unless validators
       return unless file_validation_values_for(:ext)
       extensions = file_validation_values_for(:ext)
       extensions.map { |e| ".#{e}" }
     end
 
     def validated_formats
-      return unless validators
       return unless file_validation_values_for(:format)
       formats = file_validation_values_for(:format)
       formats.map { |f| ".#{f}" }
     end
 
     def validated_mime_types
-      return unless validators
       return unless file_validation_values_for(:mime_type)
       mime_types = file_validation_values_for(:mime_type)
-      mime_types
+      mime_types.map do |mime_type|
+        "." + Mime::Type.lookup(mime_type).try(:symbol).try(:to_s)
+      end
     end
 
     def file_validation_values_for(property)
@@ -187,7 +218,7 @@ module SimpleFormAttachments
     def attachment_file_field
       input_html_options = {
         multiple: multiple?,
-        accept: accepted_file_types,
+        accept: accepted_file_types.join(","),
         class: 'file'
       }
       template.label_tag('attachment[file]') do
@@ -251,9 +282,15 @@ module SimpleFormAttachments
 
     # ---------------------------------------------------------------------
 
-    def handlebars_js_template
-      template.content_tag :script, id: 'simple_form_attachments__template', type: 'text/html' do
+    def handlebars_js_attachment_template
+      template.content_tag :script, id: 'simple_form_attachments__attachment_template', type: 'text/html' do
         template.render(File.join('simple_form_attachments', 'attachments', 'attachment.hbs.slim'))
+      end
+    end
+
+    def handlebars_js_upload_error_template
+      template.content_tag :script, id: 'simple_form_attachments__upload_error_template', type: 'text/html' do
+        template.render(File.join('simple_form_attachments', 'attachments', 'upload_error.hbs.slim'))
       end
     end
   end

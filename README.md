@@ -219,7 +219,7 @@ Or per input:
 
 ## Testing
 
-Besides a `MiniTest` test suite, the gem has a dummy app located at `test/dummy`. Simply `cd` into the directory and run `bin/rails s` to test the uploader.
+Besides a `MiniTest` test suite, the gem has a dummy app located at `test/dummy`. Simply `cd` into the directory and run `yarn` and `bundle exec rails s` to test the uploader.
 
 ## Contributing
 

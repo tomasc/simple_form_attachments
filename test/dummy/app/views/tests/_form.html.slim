@@ -1,7 +1,7 @@
 = simple_form_for @test do |f|
 
   = f.input :attachment_images, as: :attachment
-  = f.input :other_attachment_images, as: :attachment
+  = f.input :other_attachment_images, as: :attachment, accept_file_types: %i[jpg jpeg]
 
   div.actions
     = f.submit 'Submit', class: 'button'

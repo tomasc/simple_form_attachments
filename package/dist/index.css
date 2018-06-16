@@ -4,12 +4,13 @@
 
 .simple_form_attachments__attachment__has_error {
   color: red; }
-.simple_form_attachments_attachment_col_actions {
+.simple_form_attachments_attachment__col__actions {
   flex: 0 0 auto; }
-.simple_form_attachments_attachment_col_errors {
+.simple_form_attachments__attachment__col__errors {
+  color: red;
   flex: 1 1 auto;
   width: 100%; }
-  .simple_form_attachments_attachment_col_errors > ul {
+  .simple_form_attachments__attachment__col__errors > ul {
     list-style: none;
     margin: 0;
     padding: 0; }
@@ -22,6 +23,10 @@
 .simple_form_attachments__attachment__col__handle {
   background: gray;
   cursor: move;
+  flex: 0 0 auto;
+  width: 1em; }
+
+.simple_form_attachments__attachment__col__handle__disabled {
   flex: 0 0 auto;
   width: 1em; }
 .simple_form_attachments__attachment__col__hidden {
