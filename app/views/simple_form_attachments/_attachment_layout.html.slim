@@ -4,11 +4,12 @@ div class=[SimpleFormAttachments.dom_class(:attachment), (SimpleFormAttachments.
 
   = yield
 
-  div class=SimpleFormAttachments.dom_class(:attachment, [:col, :hidden])
-    = fields.hidden_field :id
-    = form.hidden_field(relation_key, multiple: multiple, value: attachment.id) if attachment.errors.empty?
+  - unless attachment.errors.present?
+    div class=SimpleFormAttachments.dom_class(:attachment, [:col, :hidden])
+      = fields.hidden_field :id
+      = form.hidden_field(relation_key, multiple: multiple, value: attachment.id) if attachment.errors.empty?
 
   div class=SimpleFormAttachments.dom_class(:attachment, [:col, :actions])
-    - button_type = attachment.errors.to_a.any? ? :close : :delete
+    - button_type = attachment.errors.present? ? :close : :delete
     button class=SimpleFormAttachments.dom_class([:button, button_type])
       = I18n.t(button_type, scope: 'simple_form_attachments.buttons')

@@ -236,7 +236,7 @@ module SimpleFormAttachments
       template.content_tag :div, class: container_classes do
         @builder.simple_fields_for attribute_name do |attachment_fields|
           template.render(
-            partial: attachment_fields.object.to_simple_form_partial_path, format: :html, layout: File.join('layouts', 'simple_form_attachments', 'attachment_layout'),
+            partial: attachment_fields.object.to_simple_form_partial_path, format: :html, layout: File.join('simple_form_attachments', 'attachment_layout'),
             locals: {
               attachment: attachment_fields.object,
               fields: attachment_fields,

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## X.X.X (unreleased)
+
+* rename `layouts/simple_form_attachments/attachment_layout` to `simple_form_attachments/attachment_layout`
+* when displaying errors do not include `hidden` fields so that the owner form can be saved
+
 ## 1.2.0
 
 * CHANGE: ensures file input ids (and label) references are unique. [Issue #20](https://github.com/tomasc/simple_form_attachments/issues/20), thanks @asgerb
