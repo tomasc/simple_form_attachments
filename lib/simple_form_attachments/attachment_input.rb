@@ -139,7 +139,7 @@ module SimpleFormAttachments
         ].reject(&:blank?).flatten.uniq
       }.map do |file_type|
         file_type.to_s.start_with?('.') ? file_type : ".#{file_type}"
-      end
+      end.uniq.sort
     end
 
     def max_file_size
