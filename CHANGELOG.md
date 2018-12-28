@@ -2,6 +2,7 @@
 
 ## X.X.X (unreleased)
 
+* move `input_html_classes` out of `private`
 * rename `layouts/simple_form_attachments/attachment_layout` to `simple_form_attachments/attachment_layout`
 * when displaying errors do not include `hidden` fields so that the owner form can be saved
 

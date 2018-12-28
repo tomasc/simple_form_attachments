@@ -33,6 +33,10 @@ module SimpleFormAttachments
       end
     end
 
+    def input_html_classes
+      super.push(SimpleFormAttachments.dom_class)
+    end
+
     private
 
     def input_html_options
@@ -47,10 +51,6 @@ module SimpleFormAttachments
           sortable: sortable?
         }.reject{ |k, v| v.nil? }
       )
-    end
-
-    def input_html_classes
-      super.push(SimpleFormAttachments.dom_class)
     end
 
     # ---------------------------------------------------------------------
