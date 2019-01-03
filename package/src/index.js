@@ -1,5 +1,3 @@
-import './simple_form_attachments'
-
 import '../../lib/assets/stylesheets/simple_form_attachments/__attachment.scss'
 import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col.scss'
 import '../../lib/assets/stylesheets/simple_form_attachments/__attachment__col__actions.scss'
@@ -14,3 +12,6 @@ import '../../lib/assets/stylesheets/simple_form_attachments/__attachment_list.s
 import '../../lib/assets/stylesheets/simple_form_attachments/__button.scss'
 import '../../lib/assets/stylesheets/simple_form_attachments/__label.scss'
 import '../../lib/assets/stylesheets/simple_form_attachments/simple_form_attachments.scss'
+
+import SimpleFormAttachments from './simple_form_attachments'
+export default SimpleFormAttachments

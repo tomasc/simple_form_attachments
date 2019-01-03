@@ -1,5 +1,5 @@
 {
-  "name": "simple_form_attachments",
+  "name": "@tomasc/simple_form_attachments",
   "version": "1.0.0",
   "description": "A Rails engine which takes care of creating Attachments using the jQuery File Upload plugin.",
   "main": "package/dist/index.js",

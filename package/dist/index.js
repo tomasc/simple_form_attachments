@@ -103,7 +103,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         // Register as an anonymous AMD module:
         !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
             __webpack_require__(0),
-            __webpack_require__(12)
+            __webpack_require__(27)
         ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
@@ -1580,36 +1580,36 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__simple_form_attachments__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__simple_form_attachments___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__simple_form_attachments__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_assets_stylesheets_simple_form_attachments_attachment_scss__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_assets_stylesheets_simple_form_attachments_attachment_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__lib_assets_stylesheets_simple_form_attachments_attachment_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_assets_stylesheets_simple_form_attachments_attachment_col_scss__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_assets_stylesheets_simple_form_attachments_attachment_col_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__lib_assets_stylesheets_simple_form_attachments_attachment_col_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_assets_stylesheets_simple_form_attachments_attachment_col_actions_scss__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_assets_stylesheets_simple_form_attachments_attachment_col_actions_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__lib_assets_stylesheets_simple_form_attachments_attachment_col_actions_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_assets_stylesheets_simple_form_attachments_attachment_col_errors_scss__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_assets_stylesheets_simple_form_attachments_attachment_col_errors_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__lib_assets_stylesheets_simple_form_attachments_attachment_col_errors_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_assets_stylesheets_simple_form_attachments_attachment_col_fields_scss__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_assets_stylesheets_simple_form_attachments_attachment_col_fields_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__lib_assets_stylesheets_simple_form_attachments_attachment_col_fields_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_assets_stylesheets_simple_form_attachments_attachment_col_file_info_scss__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_assets_stylesheets_simple_form_attachments_attachment_col_file_info_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__lib_assets_stylesheets_simple_form_attachments_attachment_col_file_info_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_assets_stylesheets_simple_form_attachments_attachment_col_handle_scss__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_assets_stylesheets_simple_form_attachments_attachment_col_handle_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__lib_assets_stylesheets_simple_form_attachments_attachment_col_handle_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_assets_stylesheets_simple_form_attachments_attachment_col_hidden_scss__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_assets_stylesheets_simple_form_attachments_attachment_col_hidden_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__lib_assets_stylesheets_simple_form_attachments_attachment_col_hidden_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_assets_stylesheets_simple_form_attachments_attachment_col_progress_scss__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_assets_stylesheets_simple_form_attachments_attachment_col_progress_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__lib_assets_stylesheets_simple_form_attachments_attachment_col_progress_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__lib_assets_stylesheets_simple_form_attachments_attachment_col_thumb_scss__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__lib_assets_stylesheets_simple_form_attachments_attachment_col_thumb_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__lib_assets_stylesheets_simple_form_attachments_attachment_col_thumb_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__lib_assets_stylesheets_simple_form_attachments_attachment_list_scss__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__lib_assets_stylesheets_simple_form_attachments_attachment_list_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__lib_assets_stylesheets_simple_form_attachments_attachment_list_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__lib_assets_stylesheets_simple_form_attachments_button_scss__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__lib_assets_stylesheets_simple_form_attachments_button_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__lib_assets_stylesheets_simple_form_attachments_button_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__lib_assets_stylesheets_simple_form_attachments_label_scss__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__lib_assets_stylesheets_simple_form_attachments_label_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__lib_assets_stylesheets_simple_form_attachments_label_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__lib_assets_stylesheets_simple_form_attachments_simple_form_attachments_scss__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__lib_assets_stylesheets_simple_form_attachments_simple_form_attachments_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__lib_assets_stylesheets_simple_form_attachments_simple_form_attachments_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_assets_stylesheets_simple_form_attachments_attachment_scss__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_assets_stylesheets_simple_form_attachments_attachment_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__lib_assets_stylesheets_simple_form_attachments_attachment_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_assets_stylesheets_simple_form_attachments_attachment_col_scss__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_assets_stylesheets_simple_form_attachments_attachment_col_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__lib_assets_stylesheets_simple_form_attachments_attachment_col_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_assets_stylesheets_simple_form_attachments_attachment_col_actions_scss__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_assets_stylesheets_simple_form_attachments_attachment_col_actions_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__lib_assets_stylesheets_simple_form_attachments_attachment_col_actions_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_assets_stylesheets_simple_form_attachments_attachment_col_errors_scss__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_assets_stylesheets_simple_form_attachments_attachment_col_errors_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__lib_assets_stylesheets_simple_form_attachments_attachment_col_errors_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_assets_stylesheets_simple_form_attachments_attachment_col_fields_scss__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_assets_stylesheets_simple_form_attachments_attachment_col_fields_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__lib_assets_stylesheets_simple_form_attachments_attachment_col_fields_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_assets_stylesheets_simple_form_attachments_attachment_col_file_info_scss__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_assets_stylesheets_simple_form_attachments_attachment_col_file_info_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__lib_assets_stylesheets_simple_form_attachments_attachment_col_file_info_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_assets_stylesheets_simple_form_attachments_attachment_col_handle_scss__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_assets_stylesheets_simple_form_attachments_attachment_col_handle_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__lib_assets_stylesheets_simple_form_attachments_attachment_col_handle_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_assets_stylesheets_simple_form_attachments_attachment_col_hidden_scss__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_assets_stylesheets_simple_form_attachments_attachment_col_hidden_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__lib_assets_stylesheets_simple_form_attachments_attachment_col_hidden_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_assets_stylesheets_simple_form_attachments_attachment_col_progress_scss__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_assets_stylesheets_simple_form_attachments_attachment_col_progress_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__lib_assets_stylesheets_simple_form_attachments_attachment_col_progress_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_assets_stylesheets_simple_form_attachments_attachment_col_thumb_scss__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_assets_stylesheets_simple_form_attachments_attachment_col_thumb_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__lib_assets_stylesheets_simple_form_attachments_attachment_col_thumb_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__lib_assets_stylesheets_simple_form_attachments_attachment_list_scss__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__lib_assets_stylesheets_simple_form_attachments_attachment_list_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__lib_assets_stylesheets_simple_form_attachments_attachment_list_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__lib_assets_stylesheets_simple_form_attachments_button_scss__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__lib_assets_stylesheets_simple_form_attachments_button_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__lib_assets_stylesheets_simple_form_attachments_button_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__lib_assets_stylesheets_simple_form_attachments_label_scss__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__lib_assets_stylesheets_simple_form_attachments_label_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__lib_assets_stylesheets_simple_form_attachments_label_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__lib_assets_stylesheets_simple_form_attachments_simple_form_attachments_scss__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__lib_assets_stylesheets_simple_form_attachments_simple_form_attachments_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__lib_assets_stylesheets_simple_form_attachments_simple_form_attachments_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__simple_form_attachments__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__simple_form_attachments___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__simple_form_attachments__);
 
 
 
@@ -1626,88 +1626,172 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_14__simple_form_attachments___default.a);
 
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(jQuery) {
+/* WEBPACK VAR INJECTION */(function($) {
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _numeraljs = __webpack_require__(4);
+var _numeraljs = __webpack_require__(18);
 
 var _numeraljs2 = _interopRequireDefault(_numeraljs);
 
-var _handlebarsMin = __webpack_require__(5);
+var _handlebarsMin = __webpack_require__(19);
 
 var _handlebarsMin2 = _interopRequireDefault(_handlebarsMin);
 
-var _sortablejs = __webpack_require__(6);
+var _sortablejs = __webpack_require__(20);
 
 var _sortablejs2 = _interopRequireDefault(_sortablejs);
+
+var _plugin = __webpack_require__(21);
+
+var _plugin2 = _interopRequireDefault(_plugin);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SimpleFormAttachments,
+    boundMethodCheck = function boundMethodCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new Error('Bound instance method accessed before binding');
+  }
+};
+
 // /* The jQuery UI widget factory, can be omitted if jQuery UI is already included */
-__webpack_require__(7);
+__webpack_require__(22);
 
-__webpack_require__(8);
+__webpack_require__(23);
 
-__webpack_require__(9);
+__webpack_require__(24);
 
-__webpack_require__(11);
+__webpack_require__(26);
 
-__webpack_require__(14);
+__webpack_require__(29);
 
-(function ($, window) {
-  var Plugin, defaults, document, pluginName;
-  pluginName = 'simple_form_attachments';
-  document = window.document;
-  defaults = {
-    debug: false,
-    sortable_options: {
-      animation: 150,
-      draggable: '.simple_form_attachments__attachment',
-      forcePlaceholderSize: true,
-      ghostClass: 'simple_form_attachments__attachment__ghost',
-      handle: '.simple_form_attachments__attachment__col__handle'
-    },
-    // axis: 'y'
-    // containment: 'parent'
-    // placeholder: 'simple_form_attachments__attachment__placeholder'
-    slide_speed: 'fast'
-  };
-  Plugin = function () {
-    function Plugin(element, options) {
-      _classCallCheck(this, Plugin);
+exports.default = SimpleFormAttachments = function () {
+  var SimpleFormAttachments = function (_Plugin) {
+    _inherits(SimpleFormAttachments, _Plugin);
 
-      this.get_attachment_template = this.get_attachment_template.bind(this);
-      this.get_upload_error_template = this.get_upload_error_template.bind(this);
-      this.element = element;
-      this.options = $.extend({}, defaults, options);
-      this.$element = $(this.element);
-      this._defaults = defaults;
-      this._name = pluginName;
-      this.init();
-      this.attachments_counter = 0;
+    function SimpleFormAttachments() {
+      _classCallCheck(this, SimpleFormAttachments);
+
+      var _this = _possibleConstructorReturn(this, (SimpleFormAttachments.__proto__ || Object.getPrototypeOf(SimpleFormAttachments)).apply(this, arguments));
+
+      _this.get_attachment_template = _this.get_attachment_template.bind(_this);
+      _this.get_upload_error_template = _this.get_upload_error_template.bind(_this);
+      return _this;
     }
 
-    _createClass(Plugin, [{
+    _createClass(SimpleFormAttachments, [{
       key: 'init',
       value: function init() {
-        var _this = this;
+        var _this2 = this;
 
+        this.attachments_counter = 0;
         this.set_unique_ids();
         this.get_file_input().on('fileuploadalways.simple_form_attachments', function (e) {
-          if (_this.is_sortable()) {
-            return _this.init_sortable();
+          if (_this2.is_sortable()) {
+            return _this2.init_sortable();
           }
         });
         if (this.is_sortable()) {
@@ -1723,7 +1807,7 @@ __webpack_require__(14);
     }, {
       key: 'init_fileupload',
       value: function init_fileupload() {
-        var _this2 = this;
+        var _this3 = this;
 
         if (this.options.debug) {
           console.log("init jQuery.fileupload");
@@ -1749,19 +1833,19 @@ __webpack_require__(14);
           minFileSize: this.get_min_file_size(),
           maxNumberOfFiles: this.get_max_number_of_files(),
           add: function add(e, data) {
-            if (_this2.options.debug) {
-              _this2.set_logs(e, data);
+            if (_this3.options.debug) {
+              _this3.set_logs(e, data);
             }
-            if (!_this2.is_multiple()) {
-              _this2.get_attachment_list().find('.simple_form_attachments__attachment').remove();
+            if (!_this3.is_multiple()) {
+              _this3.get_attachment_list().find('.simple_form_attachments__attachment').remove();
             }
             data.process(function () {
-              return _this2.get_file_input().fileupload('process', data);
+              return _this3.get_file_input().fileupload('process', data);
             });
             if (e.isDefaultPrevented()) {
               return false;
             }
-            if (data.autoUpload || data.autoUpload !== false && _this2.get_file_input().fileupload('option', 'autoUpload')) {
+            if (data.autoUpload || data.autoUpload !== false && _this3.get_file_input().fileupload('option', 'autoUpload')) {
               data.process().done(function () {
                 var $template, file, i, len, properties, ref, result;
                 ref = data.files;
@@ -1770,16 +1854,16 @@ __webpack_require__(14);
                   properties = {
                     error: file.error,
                     mime_type: file.type,
-                    multiple: _this2.is_multiple(),
+                    multiple: _this3.is_multiple(),
                     size: file.size,
-                    size_human: _this2.get_size_human(file.size),
+                    size_human: _this3.get_size_human(file.size),
                     thumb_url: URL.createObjectURL(file)
                   };
                   result = $.extend({}, file, properties);
-                  $template = _this2.get_attachment_template(result).addClass('simple_form_attachments__attachment__is_uploading');
+                  $template = _this3.get_attachment_template(result).addClass('simple_form_attachments__attachment__is_uploading');
                   data.context = $template;
                   $template.data('data', data);
-                  _this2.get_attachment_list().append($template);
+                  _this3.get_attachment_list().append($template);
                 }
                 return data.submit();
               });
@@ -1792,31 +1876,31 @@ __webpack_require__(14);
                   properties = {
                     error: file.error,
                     mime_type: file.type,
-                    multiple: _this2.is_multiple(),
+                    multiple: _this3.is_multiple(),
                     size: file.size,
-                    size_human: _this2.get_size_human(file.size),
+                    size_human: _this3.get_size_human(file.size),
                     thumb_url: URL.createObjectURL(file)
                   };
                   result = $.extend({}, file, properties);
-                  $template = _this2.get_upload_error_template(result);
+                  $template = _this3.get_upload_error_template(result);
                   data.context = $template;
                   $template.data('data', data);
-                  results.push(_this2.get_attachment_list().append($template));
+                  results.push(_this3.get_attachment_list().append($template));
                 }
                 return results;
               });
             }
           },
           start: function start(e, data) {
-            if (_this2.options.debug) {
-              _this2.set_logs(e, data);
+            if (_this3.options.debug) {
+              _this3.set_logs(e, data);
             }
-            return _this2.disable_form_submit();
+            return _this3.disable_form_submit();
           },
           fail: function fail(e, data) {
             var $result;
-            if (_this2.options.debug) {
-              _this2.set_logs(e, data);
+            if (_this3.options.debug) {
+              _this3.set_logs(e, data);
             }
             if (!!data.jqXHR.responseText) {
               $result = $(JSON.parse(data.jqXHR.responseText).html).addClass('simple_form_attachments__attachment__has_error');
@@ -1826,28 +1910,28 @@ __webpack_require__(14);
           },
           progress: function progress(e, data) {
             var progress;
-            if (_this2.options.debug) {
-              _this2.set_logs(e, data);
+            if (_this3.options.debug) {
+              _this3.set_logs(e, data);
             }
             progress = parseInt(data.loaded / data.total * 100, 10);
             return data.context.find('.simple_form_attachments__attachment__col__progress__bar').width(progress + '%');
           },
           done: function done(e, data) {
             var $result;
-            if (_this2.options.debug) {
-              _this2.set_logs(e, data);
+            if (_this3.options.debug) {
+              _this3.set_logs(e, data);
             }
-            if (_this2.options.debug) {
+            if (_this3.options.debug) {
               console.log(data.result.html);
             }
             $result = $(data.result.html).addClass('simple_form_attachments__attachment__is_uploaded');
             return data.context.replaceWith($result);
           },
           stop: function stop(e, data) {
-            if (_this2.options.debug) {
-              _this2.set_logs(e, data);
+            if (_this3.options.debug) {
+              _this3.set_logs(e, data);
             }
-            return _this2.enable_form_submit();
+            return _this3.enable_form_submit();
           }
         });
         this.$element.on('click.simple_form_attachments', '.simple_form_attachments__button__delete, .simple_form_attachments__button__close, .simple_form_attachments__button__dismiss', function (e) {
@@ -1855,7 +1939,7 @@ __webpack_require__(14);
           e.preventDefault();
           e.stopPropagation();
           $template = $(e.currentTarget).closest('.simple_form_attachments__attachment');
-          return _this2.remove_template($template);
+          return _this3.remove_template($template);
         });
         this.$element.on('click.simple_form_attachments', '.simple_form_attachments__button__cancel', function (e) {
           var $template, data;
@@ -1863,40 +1947,34 @@ __webpack_require__(14);
           e.stopPropagation();
           $template = $(e.currentTarget).closest('.simple_form_attachments__attachment');
           data = $template.data('data') || {};
-          _this2.enable_form_submit();
+          _this3.enable_form_submit();
           if (!!data.jqXHR) {
             data.jqXHR.abort();
           } else {
             data.errorThrown = 'abort';
             e.data.fileupload._trigger('fail', e, data);
           }
-          return _this2.remove_template($template);
+          return _this3.remove_template($template);
         });
         this.$element.on('dragover.simple_form_attachments', function (e) {
           e.preventDefault();
-          return _this2.$element.addClass('dragover');
+          return _this3.$element.addClass('dragover');
         });
         this.$element.on('dragleave.simple_form_attachments', function (e) {
           e.preventDefault();
-          return _this2.$element.removeClass('dragover');
+          return _this3.$element.removeClass('dragover');
         });
         return this.$element.on('drop.simple_form_attachments', function (e) {
           e.preventDefault();
-          return _this2.$element.removeClass('dragover');
+          return _this3.$element.removeClass('dragover');
         });
       }
-
-      // ---------------------------------------------------------------------
-
     }, {
       key: 'destroy',
       value: function destroy() {
         this.get_file_input().off('.simple_form_attachments');
         return this.$element.off('.simple_form_attachments');
       }
-
-      // ---------------------------------------------------------------------
-
     }, {
       key: 'get_accept_file_types',
       value: function get_accept_file_types() {
@@ -2019,6 +2097,7 @@ __webpack_require__(14);
       key: 'get_attachment_template',
       value: function get_attachment_template(file) {
         var template;
+        boundMethodCheck(this, SimpleFormAttachments);
         template = _handlebarsMin2.default.compile(this.$element.find('script#simple_form_attachments__attachment_template').html());
         return $(template(file));
       }
@@ -2026,12 +2105,10 @@ __webpack_require__(14);
       key: 'get_upload_error_template',
       value: function get_upload_error_template(file) {
         var template;
+        boundMethodCheck(this, SimpleFormAttachments);
         template = _handlebarsMin2.default.compile(this.$element.find('script#simple_form_attachments__upload_error_template').html());
         return $(template(file));
       }
-
-      // ---------------------------------------------------------------------
-
     }, {
       key: 'set_logs',
       value: function set_logs(e, data) {
@@ -2068,9 +2145,6 @@ __webpack_require__(14);
       value: function create_index() {
         return new Date().getTime() + this.attachments_counter++;
       }
-
-      // ---------------------------------------------------------------------
-
     }, {
       key: 'is_multiple',
       value: function is_multiple() {
@@ -2081,9 +2155,6 @@ __webpack_require__(14);
       value: function is_sortable() {
         return this.get_attachment_list().hasClass('simple_form_attachments__attachment_list__is_sortable');
       }
-
-      // ---------------------------------------------------------------------
-
     }, {
       key: 'set_unique_ids',
       value: function set_unique_ids() {
@@ -2097,9 +2168,6 @@ __webpack_require__(14);
         $input.attr('id', new_id);
         return $label.attr('for', new_id);
       }
-
-      // ---------------------------------------------------------------------
-
     }, {
       key: 'guid',
       value: function guid() {
@@ -2112,47 +2180,33 @@ __webpack_require__(14);
       }
     }]);
 
-    return Plugin;
-  }();
-  // ---------------------------------------------------------------------
-  return $.fn[pluginName] = function (options) {
-    var args, dataKey, returns;
-    args = arguments;
-    dataKey = 'plugin_' + name;
-    if (options === undefined || (typeof options === 'undefined' ? 'undefined' : _typeof(options)) === "object") {
-      return this.each(function () {
-        var instance;
-        this.pluginInstances || (this.pluginInstances = {});
-        if (!this.pluginInstances[dataKey]) {
-          instance = new Plugin(this, options);
-          return this.pluginInstances[dataKey] = instance;
-        }
-      });
-    } else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
-      returns = void 0;
-      return this.each(function () {
-        var instance;
-        this.pluginInstances || (this.pluginInstances = {});
-        instance = this.pluginInstances[dataKey];
-        if (instance instanceof Plugin && typeof instance[options] === 'function') {
-          returns = instance[options].apply(instance, Array.prototype.slice.call(args, 1));
-          if (options === 'destroy') {
-            this.pluginInstances[dataKey] = null;
-          }
-          if (returns !== undefined) {
-            return returns;
-          } else {
-            return this;
-          }
-        }
-      });
-    }
+    return SimpleFormAttachments;
+  }(_plugin2.default);
+
+  ;
+
+  SimpleFormAttachments.defaults = {
+    name: 'SimpleFormAttachments',
+    debug: false,
+    sortable_options: {
+      animation: 150,
+      draggable: '.simple_form_attachments__attachment',
+      forcePlaceholderSize: true,
+      ghostClass: 'simple_form_attachments__attachment__ghost',
+      handle: '.simple_form_attachments__attachment__col__handle'
+    },
+    // axis: 'y'
+    // containment: 'parent'
+    // placeholder: 'simple_form_attachments__attachment__placeholder'
+    slide_speed: 'fast'
   };
-})(jQuery, window);
+
+  return SimpleFormAttachments;
+}();
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 4 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2838,7 +2892,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 5 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**!
@@ -2872,7 +2926,7 @@ THE SOFTWARE.
 var f=g.nameLookup(e,b[c],a);return d?[" && ",f]:[" != null ? ",f," : ",e]})},resolvePossibleLambda:function(){this.push([this.aliasable("container.lambda"),"(",this.popStack(),", ",this.contextName(0),")"])},pushStringParam:function(a,b){this.pushContext(),this.pushString(b),"SubExpression"!==b&&("string"==typeof a?this.pushString(a):this.pushStackLiteral(a))},emptyHash:function(a){this.trackIds&&this.push("{}"),this.stringParams&&(this.push("{}"),this.push("{}")),this.pushStackLiteral(a?"undefined":"{}")},pushHash:function(){this.hash&&this.hashes.push(this.hash),this.hash={values:[],types:[],contexts:[],ids:[]}},popHash:function(){var a=this.hash;this.hash=this.hashes.pop(),this.trackIds&&this.push(this.objectLiteral(a.ids)),this.stringParams&&(this.push(this.objectLiteral(a.contexts)),this.push(this.objectLiteral(a.types))),this.push(this.objectLiteral(a.values))},pushString:function(a){this.pushStackLiteral(this.quotedString(a))},pushLiteral:function(a){this.pushStackLiteral(a)},pushProgram:function(a){null!=a?this.pushStackLiteral(this.programExpression(a)):this.pushStackLiteral(null)},registerDecorator:function(a,b){var c=this.nameLookup("decorators",b,"decorator"),d=this.setupHelperArgs(b,a);this.decorators.push(["fn = ",this.decorators.functionCall(c,"",["fn","props","container",d])," || fn;"])},invokeHelper:function(a,b,c){var d=this.popStack(),e=this.setupHelper(a,b),f=c?[e.name," || "]:"",g=["("].concat(f,d);this.options.strict||g.push(" || ",this.aliasable("helpers.helperMissing")),g.push(")"),this.push(this.source.functionCall(g,"call",e.callParams))},invokeKnownHelper:function(a,b){var c=this.setupHelper(a,b);this.push(this.source.functionCall(c.name,"call",c.callParams))},invokeAmbiguous:function(a,b){this.useRegister("helper");var c=this.popStack();this.emptyHash();var d=this.setupHelper(0,a,b),e=this.lastHelper=this.nameLookup("helpers",a,"helper"),f=["(","(helper = ",e," || ",c,")"];this.options.strict||(f[0]="(helper = ",f.push(" != null ? helper : ",this.aliasable("helpers.helperMissing"))),this.push(["(",f,d.paramsInit?["),(",d.paramsInit]:[],"),","(typeof helper === ",this.aliasable('"function"')," ? ",this.source.functionCall("helper","call",d.callParams)," : helper))"])},invokePartial:function(a,b,c){var d=[],e=this.setupParams(b,1,d);a&&(b=this.popStack(),delete e.name),c&&(e.indent=JSON.stringify(c)),e.helpers="helpers",e.partials="partials",e.decorators="container.decorators",a?d.unshift(b):d.unshift(this.nameLookup("partials",b,"partial")),this.options.compat&&(e.depths="depths"),e=this.objectLiteral(e),d.push(e),this.push(this.source.functionCall("container.invokePartial","",d))},assignToHash:function(a){var b=this.popStack(),c=void 0,d=void 0,e=void 0;this.trackIds&&(e=this.popStack()),this.stringParams&&(d=this.popStack(),c=this.popStack());var f=this.hash;c&&(f.contexts[a]=c),d&&(f.types[a]=d),e&&(f.ids[a]=e),f.values[a]=b},pushId:function(a,b,c){"BlockParam"===a?this.pushStackLiteral("blockParams["+b[0]+"].path["+b[1]+"]"+(c?" + "+JSON.stringify("."+c):"")):"PathExpression"===a?this.pushString(b):"SubExpression"===a?this.pushStackLiteral("true"):this.pushStackLiteral("null")},compiler:e,compileChildren:function(a,b){for(var c=a.children,d=void 0,e=void 0,f=0,g=c.length;f<g;f++){d=c[f],e=new this.compiler;var h=this.matchExistingProgram(d);if(null==h){this.context.programs.push("");var i=this.context.programs.length;d.index=i,d.name="program"+i,this.context.programs[i]=e.compile(d,b,this.context,!this.precompile),this.context.decorators[i]=e.decorators,this.context.environments[i]=d,this.useDepths=this.useDepths||e.useDepths,this.useBlockParams=this.useBlockParams||e.useBlockParams,d.useDepths=this.useDepths,d.useBlockParams=this.useBlockParams}else d.index=h.index,d.name="program"+h.index,this.useDepths=this.useDepths||h.useDepths,this.useBlockParams=this.useBlockParams||h.useBlockParams}},matchExistingProgram:function(a){for(var b=0,c=this.context.environments.length;b<c;b++){var d=this.context.environments[b];if(d&&d.equals(a))return d}},programExpression:function(a){var b=this.environment.children[a],c=[b.index,"data",b.blockParams];return(this.useBlockParams||this.useDepths)&&c.push("blockParams"),this.useDepths&&c.push("depths"),"container.program("+c.join(", ")+")"},useRegister:function(a){this.registers[a]||(this.registers[a]=!0,this.registers.list.push(a))},push:function(a){return a instanceof d||(a=this.source.wrap(a)),this.inlineStack.push(a),a},pushStackLiteral:function(a){this.push(new d(a))},pushSource:function(a){this.pendingContent&&(this.source.push(this.appendToBuffer(this.source.quotedString(this.pendingContent),this.pendingLocation)),this.pendingContent=void 0),a&&this.source.push(a)},replaceStack:function(a){var b=["("],c=void 0,e=void 0,f=void 0;if(!this.isInline())throw new j["default"]("replaceStack on non-inline");var g=this.popStack(!0);if(g instanceof d)c=[g.value],b=["(",c],f=!0;else{e=!0;var h=this.incrStack();b=["((",this.push(h)," = ",g,")"],c=this.topStack()}var i=a.call(this,c);f||this.popStack(),e&&this.stackSlot--,this.push(b.concat(i,")"))},incrStack:function(){return this.stackSlot++,this.stackSlot>this.stackVars.length&&this.stackVars.push("stack"+this.stackSlot),this.topStackName()},topStackName:function(){return"stack"+this.stackSlot},flushInline:function(){var a=this.inlineStack;this.inlineStack=[];for(var b=0,c=a.length;b<c;b++){var e=a[b];if(e instanceof d)this.compileStack.push(e);else{var f=this.incrStack();this.pushSource([f," = ",e,";"]),this.compileStack.push(f)}}},isInline:function(){return this.inlineStack.length},popStack:function(a){var b=this.isInline(),c=(b?this.inlineStack:this.compileStack).pop();if(!a&&c instanceof d)return c.value;if(!b){if(!this.stackSlot)throw new j["default"]("Invalid stack pop");this.stackSlot--}return c},topStack:function(){var a=this.isInline()?this.inlineStack:this.compileStack,b=a[a.length-1];return b instanceof d?b.value:b},contextName:function(a){return this.useDepths&&a?"depths["+a+"]":"depth"+a},quotedString:function(a){return this.source.quotedString(a)},objectLiteral:function(a){return this.source.objectLiteral(a)},aliasable:function(a){var b=this.aliases[a];return b?(b.referenceCount++,b):(b=this.aliases[a]=this.source.wrap(a),b.aliasable=!0,b.referenceCount=1,b)},setupHelper:function(a,b,c){var d=[],e=this.setupHelperArgs(b,a,d,c),f=this.nameLookup("helpers",b,"helper"),g=this.aliasable(this.contextName(0)+" != null ? "+this.contextName(0)+" : (container.nullContext || {})");return{params:d,paramsInit:e,name:f,callParams:[g].concat(d)}},setupParams:function(a,b,c){var d={},e=[],f=[],g=[],h=!c,i=void 0;h&&(c=[]),d.name=this.quotedString(a),d.hash=this.popStack(),this.trackIds&&(d.hashIds=this.popStack()),this.stringParams&&(d.hashTypes=this.popStack(),d.hashContexts=this.popStack());var j=this.popStack(),k=this.popStack();(k||j)&&(d.fn=k||"container.noop",d.inverse=j||"container.noop");for(var l=b;l--;)i=this.popStack(),c[l]=i,this.trackIds&&(g[l]=this.popStack()),this.stringParams&&(f[l]=this.popStack(),e[l]=this.popStack());return h&&(d.args=this.source.generateArray(c)),this.trackIds&&(d.ids=this.source.generateArray(g)),this.stringParams&&(d.types=this.source.generateArray(f),d.contexts=this.source.generateArray(e)),this.options.data&&(d.data="data"),this.useBlockParams&&(d.blockParams="blockParams"),d},setupHelperArgs:function(a,b,c,d){var e=this.setupParams(a,b,c);return e=this.objectLiteral(e),d?(this.useRegister("options"),c.push("options"),["options=",e]):c?(c.push(e),""):e}},function(){for(var a="break else new var case finally return void catch for switch while continue function this with default if throw delete in try do instanceof typeof abstract enum int short boolean export interface static byte extends long super char final native synchronized class float package throws const goto private transient debugger implements protected volatile double import public let yield await null true false".split(" "),b=e.RESERVED_WORDS={},c=0,d=a.length;c<d;c++)b[a[c]]=!0}(),e.isValidJavaScriptVariableName=function(a){return!e.RESERVED_WORDS[a]&&/^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(a)},b["default"]=e,a.exports=b["default"]},function(a,b,c){"use strict";function d(a,b,c){if(f.isArray(a)){for(var d=[],e=0,g=a.length;e<g;e++)d.push(b.wrap(a[e],c));return d}return"boolean"==typeof a||"number"==typeof a?a+"":a}function e(a){this.srcFile=a,this.source=[]}b.__esModule=!0;var f=c(5),g=void 0;try{}catch(h){}g||(g=function(a,b,c,d){this.src="",d&&this.add(d)},g.prototype={add:function(a){f.isArray(a)&&(a=a.join("")),this.src+=a},prepend:function(a){f.isArray(a)&&(a=a.join("")),this.src=a+this.src},toStringWithSourceMap:function(){return{code:this.toString()}},toString:function(){return this.src}}),e.prototype={isEmpty:function(){return!this.source.length},prepend:function(a,b){this.source.unshift(this.wrap(a,b))},push:function(a,b){this.source.push(this.wrap(a,b))},merge:function(){var a=this.empty();return this.each(function(b){a.add(["  ",b,"\n"])}),a},each:function(a){for(var b=0,c=this.source.length;b<c;b++)a(this.source[b])},empty:function(){var a=this.currentLocation||{start:{}};return new g(a.start.line,a.start.column,this.srcFile)},wrap:function(a){var b=arguments.length<=1||void 0===arguments[1]?this.currentLocation||{start:{}}:arguments[1];return a instanceof g?a:(a=d(a,this,b),new g(b.start.line,b.start.column,this.srcFile,a))},functionCall:function(a,b,c){return c=this.generateList(c),this.wrap([a,b?"."+b+"(":"(",c,")"])},quotedString:function(a){return'"'+(a+"").replace(/\\/g,"\\\\").replace(/"/g,'\\"').replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/\u2028/g,"\\u2028").replace(/\u2029/g,"\\u2029")+'"'},objectLiteral:function(a){var b=[];for(var c in a)if(a.hasOwnProperty(c)){var e=d(a[c],this);"undefined"!==e&&b.push([this.quotedString(c),":",e])}var f=this.generateList(b);return f.prepend("{"),f.add("}"),f},generateList:function(a){for(var b=this.empty(),c=0,e=a.length;c<e;c++)c&&b.add(","),b.add(d(a[c],this));return b},generateArray:function(a){var b=this.generateList(a);return b.prepend("["),b.add("]"),b}},b["default"]=e,a.exports=b["default"]}])});
 
 /***/ }),
-/* 6 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**!
@@ -4422,7 +4476,93 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**!
 
 
 /***/ }),
-/* 7 */
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Plugin;
+
+exports.default = Plugin = function () {
+  _createClass(Plugin, null, [{
+    key: "register",
+    value: function register() {
+      var defaults, klass, name, options, ref, ref1, selector;
+      klass = this;
+      defaults = (ref = this.defaults) != null ? ref : {};
+      name = defaults.name || (defaults.name = /function ([^(]*)/.exec(klass + "")[1]);
+      options = Array.prototype.slice.call(arguments).slice(1);
+      selector = (ref1 = arguments[0]) != null ? ref1 : klass.selector;
+      return this.init_plugin(klass, name);
+    }
+  }, {
+    key: "init_plugin",
+    value: function init_plugin(klass, name) {
+      if ($.fn[name] !== void 0) {
+        return;
+      }
+      return $.fn[name] = function (options) {
+        var args, dataKey, returns;
+        args = arguments;
+        dataKey = "plugin_" + name;
+        if (options === undefined || (typeof options === "undefined" ? "undefined" : _typeof(options)) === "object") {
+          return this.each(function () {
+            var instance;
+            this.pluginInstances || (this.pluginInstances = {});
+            if (!this.pluginInstances[dataKey]) {
+              instance = new klass(this, options);
+              return this.pluginInstances[dataKey] = instance;
+            }
+          });
+        } else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
+          returns = void 0;
+          this.each(function () {
+            var instance;
+            this.pluginInstances || (this.pluginInstances = {});
+            instance = this.pluginInstances[dataKey];
+            if (instance instanceof klass && typeof instance[options] === 'function') {
+              returns = instance[options].apply(instance, Array.prototype.slice.call(args, 1));
+            }
+            if (options === 'destroy') {
+              return this.pluginInstances[dataKey] = null;
+            }
+          });
+          if (returns !== undefined) {
+            return returns;
+          } else {
+            return this;
+          }
+        }
+      };
+    }
+  }]);
+
+  function Plugin(element, options) {
+    _classCallCheck(this, Plugin);
+
+    this.element = element;
+    this.options = $.extend({}, this.constructor.defaults, options);
+    this.$element = $(this.element);
+    this.init();
+  }
+
+  return Plugin;
+}();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*** IMPORTS FROM imports-loader ***/
@@ -5182,7 +5322,7 @@ var exports = false;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*** IMPORTS FROM imports-loader ***/
@@ -5417,7 +5557,7 @@ var exports = false;
 
 
 /***/ }),
-/* 9 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*** IMPORTS FROM imports-loader ***/
@@ -5450,7 +5590,7 @@ var exports = false;
         // Node/CommonJS:
         factory(
             __webpack_require__(0),
-            __webpack_require__(10)
+            __webpack_require__(25)
         );
     } else {
         // Browser globals:
@@ -6914,7 +7054,7 @@ var exports = false;
 
 
 /***/ }),
-/* 10 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! jQuery UI - v1.12.1 - 2018-02-10
@@ -7671,7 +7811,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 11 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*** IMPORTS FROM imports-loader ***/
@@ -7860,7 +8000,7 @@ var exports = false;
 
 
 /***/ }),
-/* 12 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -7882,7 +8022,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 	if ( true ) {
 
 		// AMD. Register as an anonymous module.
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(13) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(0), __webpack_require__(28) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -8602,7 +8742,7 @@ return $.widget;
 
 
 /***/ }),
-/* 13 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
@@ -8628,7 +8768,7 @@ return $.ui.version = "1.12.1";
 
 
 /***/ }),
-/* 14 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*** IMPORTS FROM imports-loader ***/
@@ -8660,7 +8800,7 @@ var exports = false;
         // Node/CommonJS:
         factory(
             __webpack_require__(0),
-            __webpack_require__(15)
+            __webpack_require__(30)
         );
     } else {
         // Browser globals:
@@ -8764,7 +8904,7 @@ var exports = false;
 
 
 /***/ }),
-/* 15 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -8949,90 +9089,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 }));
 
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
