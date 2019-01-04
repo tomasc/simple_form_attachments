@@ -21,12 +21,13 @@ module.exports = {
       }
     ],
   },
-  externals: {
-    'handlebars/dist/handlebars.min.js': 'Handlebars',
-    'jquery': 'jquery',
-    'numeraljs': 'numeral',
-    'sortablejs': 'Sortable'
-  },
+  externals: [
+    /blueimp-file-upload\/js\/.+$/,
+    'handlebars/dist/handlebars.min.js',
+    'jquery',
+    'numeraljs',
+    'sortablejs'
+  ],
   entry: './package/src/index.js',
   output: {
     library: '@tomasc/simple_form_attachments',
