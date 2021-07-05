@@ -19,7 +19,8 @@ module SimpleFormAttachments
           class_name: opts.fetch(:class_name, nil),
           dependent: opts.fetch(:dependent, nil),
           inverse_of: opts.fetch(:inverse_of, nil),
-        }
+          index: opts.fetch(:index, nil),
+        }.compact
 
         has_and_belongs_to_many accessor_name, options do
           # FIXME: ideally the relation would return the attachments already sorted,
@@ -56,8 +57,9 @@ module SimpleFormAttachments
         options = {
           class_name: opts.fetch(:class_name, nil),
           dependent: opts.fetch(:dependent, nil),
-          optional: opts.fetch(:optional, true)
-        }
+          optional: opts.fetch(:optional, true),
+          index: opts.fetch(:index, nil),
+        }.compact
 
         belongs_to accessor_name, options
 
