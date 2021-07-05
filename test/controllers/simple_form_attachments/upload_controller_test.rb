@@ -18,7 +18,7 @@ describe SimpleFormAttachments::UploadController do
         attachment_type: 'AttachmentTest'
       }
     end
-    let(:action) { post :create, params: params }
+    let(:action) { post SimpleFormAttachments::Engine.routes.url_helpers.attachments_path, params: params }
 
     it 'should succeed' do
       action
@@ -31,9 +31,9 @@ describe SimpleFormAttachments::UploadController do
 
     it 'must mark the newly upladed attachment as temporary' do
       action
-      assigns(:attachment).must_be :present?
-      assigns(:attachment).body.must_equal 'foo'
-      assigns(:attachment).temporary.must_equal true
+      _(assigns(:attachment)).must_be :present?
+      _(assigns(:attachment).body).must_equal 'foo'
+      _(assigns(:attachment).temporary).must_equal true
     end
 
     describe 'returned JSON' do
@@ -50,13 +50,12 @@ describe SimpleFormAttachments::UploadController do
     let(:attachment) { AttachmentTest.create! }
     let(:params) do
       {
-        id: attachment.id.to_s,
         attachment_parent: { class: 'Parent' },
         attachment_relation: { name: 'attachments', multiple: true },
         attachment_type: 'AttachmentTest'
       }
     end
-    let(:action) { get :show, params: params }
+    let(:action) { get SimpleFormAttachments::Engine.routes.url_helpers.attachment_path(attachment), params: params }
 
     it 'should succeed' do
       action

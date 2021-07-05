@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.12'
   spec.add_development_dependency 'coffee-rails'
   spec.add_development_dependency 'coveralls'
-  spec.add_development_dependency 'database_cleaner'
+  spec.add_development_dependency 'database_cleaner-mongoid', '~> 2.0.0.beta'
   spec.add_development_dependency 'dragonfly'
   spec.add_development_dependency 'guard'
   spec.add_development_dependency 'guard-minitest'

@@ -8,7 +8,7 @@ require "rails/test_help"
 require 'minitest/rails'
 require 'minitest/spec'
 require 'slim'
-require 'database_cleaner'
+require 'database_cleaner/mongoid'
 require 'mongoid'
 
 require 'rails-controller-testing'
@@ -51,9 +51,6 @@ Mongoid.configure do |config|
   config.load_configuration(CONFIG)
 end
 
-DatabaseCleaner.orm = :mongoid
-DatabaseCleaner.strategy = :truncation
-
 class MiniTest::Spec
   before(:each) { DatabaseCleaner.start }
   after(:each) { DatabaseCleaner.clean }
@@ -71,6 +68,6 @@ class Parent
   include Mongoid::Document
   include SimpleFormAttachments::HasAttachments
 
-  has_one_attachment :attachment, class_name: 'AttachmentTest', dependent: :destroy
-  has_many_attachments :attachments, class_name: 'AttachmentTest', dependent: :destroy
+  has_one_attachment :attachment, class_name: 'AttachmentTest', dependent: :destroy, index: false
+  has_many_attachments :attachments, class_name: 'AttachmentTest', dependent: :destroy, index: true
 end
