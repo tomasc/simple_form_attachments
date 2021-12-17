@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 # Specify your gem's dependencies in simple_form_epic_editor.gemspec
 gemspec
@@ -10,4 +9,4 @@ when /6/ then gem 'mongoid', '~> 6.0'
 else gem 'mongoid', version
 end
 
-gem 'webpacker', '~> 3.5'
+gem "webpacker", "~> 5.4.3"
