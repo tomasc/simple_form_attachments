@@ -5,7 +5,7 @@ module SimpleFormAttachments
     extend ActiveSupport::Concern
 
     included do
-      field :temporary, type: Boolean, default: false
+      field :temporary, type: Mongoid::Boolean, default: false
 
       scope :temporary, -> { where(temporary: true) }
       scope :permanent, -> { where(temporary: false) }
